@@ -216,4 +216,35 @@ else{
 
 
 
-/// 枚举递归
+/// 枚举递归  indirect 告诉编译器枚举中含有递归的定义
+
+indirect enum ArithmeticExpression{
+    case Number(Int)
+    case Addition(ArithmeticExpression,ArithmeticExpression)
+    case Multiplication(ArithmeticExpression,ArithmeticExpression)
+    case Subtraction(ArithmeticExpression,ArithmeticExpression)
+}
+
+/// (5 + 4) * 2
+
+let five = ArithmeticExpression.Number(5);
+let four = ArithmeticExpression.Number(4);
+let sum = ArithmeticExpression.Addition(five, four)
+let two = ArithmeticExpression.Number(2)
+let product = ArithmeticExpression.Multiplication(sum, two)
+
+func evaluate(_ expression: ArithmeticExpression) -> Int{
+    switch expression {
+    case let .Number(value):
+        return value
+    case let .Addition(left, right):
+        return evaluate(left) + evaluate(right)
+    case let .Multiplication(left, right):
+        return evaluate(left) * evaluate(right)
+    case let .Subtraction(left, right):
+        return evaluate(left) - evaluate(right)
+    }
+}
+
+evaluate(product)
+
