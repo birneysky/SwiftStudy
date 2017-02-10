@@ -2,9 +2,8 @@
 
 import UIKit
 
-var shopingList = ["catFish","Water", "tulips", "blue paint"]
 
-/*
+/**
 enum Month{
     case January
     case February
@@ -46,8 +45,10 @@ let curMonth1: Month = .July
 let month = "June"
 season( curMonth )*/
 
-//// raw Value
 
+/**
+ raw Value  枚举的原始值
+ */
 enum Month: Int{
     case January = 1
     case February = 2
@@ -76,7 +77,9 @@ if let month = month1 {
     monthsBeforeNewYear(month)
 }
 
-
+/**
+原始值类型为Int是，原始值大小默认从0开始，后面依次递增
+*/
 enum Grade: Int{
     case F, E, D, C, B, A
 }
@@ -86,6 +89,9 @@ let grade:Grade = .A
 print("Your score is \(grade.rawValue)")
 
 
+/**
+ 也可以指定确定的原始值，不强求一定要连续
+*/
 enum Coin: Int{
     case Penny = 1
     case Nickel = 5
@@ -96,6 +102,11 @@ enum Coin: Int{
 let coin:Coin = .Quarter
 print("It's a \(coin.rawValue) cents")
 
+
+/**
+ 下面的枚举表示了不同的编程语言，原始值为String类型，
+ 当不设原始值是，默认的原始值为变量名本身构成的字符串
+ */
 enum ProgramingLanguage: String{
     case Swift
     case Objectivec = "Objective-C"
@@ -109,7 +120,14 @@ let myFavoriteLanguage:ProgramingLanguage = .CPlusPlus
 print("\(myFavoriteLanguage.rawValue) is my favorite language");
 
 
-///相关值 associate value
+/**
+枚举相关值 associate value
+
+不同的枚举选项可以指定为不同的相关类型
+
+比如下面的枚举表示的ATM机的状态，成功由Int值表示，失败由String表示
+*/
+
 enum ATMStatus{
     case Success(Int)
     case Error(String)
@@ -150,37 +168,8 @@ case .Waiting:
     print("Waiting")
 }
 
-/// 关联元祖
-enum Shape{
-    case Square(side: Double)
-    case Rectangle(width: Double, height: Double)
-    case Circle(centerx: Double, centery: Double, radius: Double)
-    case Point
-}
 
-let square = Shape.Square(side: 10)
-let rectangle = Shape.Rectangle(width: 20, height: 30)
-let circle = Shape.Circle(centerx: 0, centery: 0, radius: 15)
-let point = Shape.Point
 
-func area(_ shape: Shape) -> Double
-{
-    switch shape {
-    case let .Square(side):
-        return side * side
-    case let .Rectangle(width,height):
-        return width * height
-    case let .Circle(_,_,r):
-        return M_PI * r * r
-    case .Point:
-        return 0
-    }
-}
-
-area(square)
-area(rectangle)
-area(circle)
-area(point)
 
 /// 可选型的实质是枚举
 
@@ -247,4 +236,77 @@ func evaluate(_ expression: ArithmeticExpression) -> Int{
 }
 
 evaluate(product)
+
+
+/**
+ 关联元祖,枚举可以关联多个不同类型的值
+ 
+ ```
+enum Shape{
+    case Square(side: Double)
+    case Rectangle(width: Double, height: Double)
+    case Circle(centerx: Double, centery: Double, radius: Double)
+    case Point
+}
+ 
+ let square = Shape.Square(side: 10)
+ let rectangle = Shape.Rectangle(width: 20, height: 30)
+ let circle = Shape.Circle(centerx: 0, centery: 0, radius: 15)
+ let point = Shape.Point
+ 
+ func area(_ shape: Shape) -> Double
+ {
+    switch shape {
+    case let .Square(side):
+        return side * side
+    case let .Rectangle(width,height):
+        return width * height
+    case let .Circle(_,_,r):
+        return M_PI * r * r
+    case .Point:
+        return 0
+    }
+ }
+ 
+ area(square)
+ area(rectangle)
+ area(circle)
+ area(point)
+
+```
+ /// 枚举类型也可以定义方法
+*/
+
+enum Shape{
+    case Square(side: Double)
+    case Rectangle(width: Double, height: Double)
+    case Circle(centerx: Double, centery: Double, radius: Double)
+    case Point
+
+    func area() -> Double{
+        switch self {
+        case let .Square(side):
+            return side * side
+        case let .Rectangle(width, height):
+            return width * height
+        case let .Circle(_, _, r):
+            return M_PI * r * r
+        case .Point:
+            return 0
+        }
+    }
+}
+
+
+let square1 = Shape.Square(side: 10)
+let rectangle1 = Shape.Rectangle(width: 20, height: 30)
+let circle1 = Shape.Circle(centerx: 0, centery: 0, radius: 15)
+let point1 = Shape.Point
+
+square1.area()
+rectangle1.area()
+circle1.area()
+point1.area()
+
+
 
