@@ -2,7 +2,15 @@
 
 import UIKit
 
-//// 当引入了继承这个概念后，对子类的构造函数有什么影响
+
+/**
+ 对于类来说，如果没有写默认的构造函数（属性设置默认值除外，这种情况有一个默认无参的构造函数），编译器是不会生成的。
+ 这一点是与结构不同的，但是对于子类来说，这个结论不一定成立，在一些情况下，子类有可能会继承父类的构造函数。
+ 具体哪些情况下会继承父类的构造函数呢？
+ 如果子类实现了父类所有的指定构造函数，子类就能自动继承来自父类的所有便利构造函数
+ 如果子类没有实现父类的任何指定构造函数，子类就会自动继承父类所有的指定构造函数，
+ */
+
 
 ///角色
 class Avatar{
@@ -23,8 +31,15 @@ class Avatar{
         return "I'm avatar \(name)"
     }
     
+    ///指定构造函数
     init(name: String){
         self.name = name
+    }
+    
+    ///便利构造函数， 调用指定构造函数,便利构造函数式不允许调用父类的构造函数的
+    convenience init(firstName: String, lastName: String){
+        let fullName = "\(firstName) \(lastName)"
+        self.init(name:fullName)
     }
     
     func beAttacked(attack: Int){
@@ -60,19 +75,48 @@ class User: Avatar{
         //self.name = name   /// 报错
     }
     
+    ///便利构造函数,调用了自己的非便利构造函数
+    convenience init(group: String){
+        let userName = User.generateUserName()
+        
+        self.init(name:userName,group:group)
+    }
+    
+    convenience override init(name: String){
+        self.init(name: name, group: "")
+    }
+    
     ///希望再子类中重新定义它，覆盖父类的这个属性
     override var description: String{
         return "I'm user \(name)"
     }
+    
+    static func generateUserName() -> String{
+        return "player\(arc4random() % 1_000_000)";
+    }
 }
 
-///不希望被继承
+///不希望被继承,魔术师
 final class Magician: User{
-    var magic = 0
+    var magic: Int = 0
     
     func heal(user: User){
         user.life += 10
         
+    }
+    
+    
+    override init(name: String, group: String) {
+        let defaultGroups = ["Gryffindor","Hufflepuff","Ravenclaw","Slytherin"]
+        for theGroup in defaultGroups{
+            if theGroup == group {
+                super.init(name: name, group: group)
+                return;
+            }
+        }
+        
+        let group = defaultGroups[Int(arc4random() % 4)]
+        super.init(name: name, group: group)
     }
     
     ///希望再子类中重新定义它，覆盖父类的这个属性
@@ -83,11 +127,26 @@ final class Magician: User{
 
 ///战士
 final class Warrior: User{
+    static let weapons = ["Sword","Axe","Spear"]
     var weapon: String
-    init(name: String, group: String, weapon: String){
+    
+    ///默认参数
+    init(name: String, group: String, weapon: String = "Sword"){
         self.weapon = weapon
         super.init(name: name, group: group)
     }
+    
+    override init(name: String, group: String) {
+        
+        self.weapon = Warrior.weapons[Int(arc4random() % 3)]
+        super.init(name: name, group: group)
+    }
+    
+    
+    //    convenience override init(name: String, group: String) {
+    //        let weapon = Warrior.weapons[Int(arc4random() % 3)]
+    //        self.init(name: name,group: group, weapon:weapon)
+    //    }
     
     ///希望再子类中重新定义它，覆盖父类的这个属性
     override var description: String{
@@ -105,6 +164,11 @@ class Monster: Avatar{
     func attack(user: User, amount: Int){
         user.beAttacked(attack: amount)
     }
+    
+    convenience init(type: String){
+        self.init(name: type)
+    }
+    
     ///希望再子类中重新定义它，覆盖父类的这个属性
     override var description: String{
         return "I'm Monster \(name)"
@@ -121,6 +185,5 @@ final class Zombie: Monster{
 }
 
 
-let user = User(name: "MMDa", group: "imoc")
-user
-
+let  player1 = User(firstName: "Json", lastName: "Snow")
+//let  user2 = Monster(
