@@ -30,3 +30,61 @@ var bye = "bye"
 swapTwoThings(&hello, &bye)
 hello
 bye
+
+
+/// 泛型类型
+
+let arr:Array<Int> = Array<Int>()
+let dic = Dictionary<String, Int>()
+let set = Set<Float>()
+
+struct Stack<T>{
+    
+    var items = [T]()
+    
+    func  isEmpty() -> Bool{
+        return items.count == 0
+    }
+    
+    mutating func push(item: T){
+        items.append(item)
+    }
+    
+    mutating func pop() -> T?{
+        guard !self.isEmpty() else{
+            return nil
+        }
+        
+        return items.removeLast()
+    }
+}
+
+extension Stack{
+    func top() -> T?{
+        return items.last
+    }
+}
+
+var s = Stack<Int>()
+s.push(item: 2)
+s.push(item: 3)
+s.pop()
+s.items
+s.top()
+
+let sss = Stack<String>()
+sss.top()
+
+
+struct Pair<T1,T2>{
+    var a: T1
+    var b: T2
+    
+    
+}
+
+
+var pair = Pair<Int,String>(a: 3, b: "hello")
+pair.a
+pair.b
+
