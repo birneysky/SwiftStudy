@@ -31,6 +31,7 @@ typealias AudioSample = UInt64 /// UInt8 UInt16  不同系统下使用不同类�
 
 protocol WeightCalculable{
     
+    ///关联类型
     associatedtype WeightType
     
     var weight: WeightType  {get}
