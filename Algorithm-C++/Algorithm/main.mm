@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
         // insert code here...
         NSLog(@"Hello, World!");
         
-        int n = 20;
+        int n = 20000;
         int* randomArray = SortTestHelper::generateRandomArray(n, 0, 20);
         //int* randomArray = SortTestHelper::generateNearlyOrderedArray(n, 10);
         int* copyArray = SortTestHelper::copyIntArray(randomArray, n);
