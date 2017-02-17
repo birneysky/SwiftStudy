@@ -8,19 +8,17 @@
 
 import Foundation
 
-//print("Hello, World!")
-//
-//
-//var array: [Int] = [Int]()
-//let start = clock()
-//for i in 0...140_000_000{
-//    array.append(i)
-//}
-//let end = clock()
-//
-//print(Double(end - start) / Double(CLOCKS_PER_SEC))
+let n = 10000
+var times = 200
 
+//var array = SortTestHelper.generateRandomIntArray(n: n, rangeL: 0, rangeR: n)
+var array = SortTestHelper.generateNearlyOrderedArray(n: n, swapTimes: times)
+var copyArray1 = array
+var copyArray2 = array
+var copyArray3 = array
 
-var array = SortTestHelper.generateRandomIntArray(n: 10_000, rangeL: 10, rangeR: 10000)
-
+SortTestHelper.testSort(sortName: "SortInStdLibrary", algorighm: sortInStdLib, array: &copyArray1)
 SortTestHelper.testSort(sortName: "SelectionSort", algorighm: selectSort, array: &array)
+SortTestHelper.testSort(sortName: "InsertSort", algorighm: insertSort, array: &copyArray2)
+SortTestHelper.testSort(sortName: "InsertSort2", algorighm: insertSort2, array: &copyArray3)
+
