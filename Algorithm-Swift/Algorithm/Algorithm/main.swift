@@ -11,8 +11,8 @@ import Foundation
 let n = 10000
 var times = 200
 
-//var array = SortTestHelper.generateRandomIntArray(n: n, rangeL: 0, rangeR: n)
-var array = SortTestHelper.generateNearlyOrderedArray(n: n, swapTimes: times)
+var array = SortTestHelper.generateRandomIntArray(n: n, rangeL: 0, rangeR: n)
+///var array = SortTestHelper.generateNearlyOrderedArray(n: n, swapTimes: times)
 var copyArray1 = array
 var copyArray2 = array
 var copyArray3 = array
