@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
         // insert code here...
         NSLog(@"Hello, World!");
         
-        int n = 10000;
+        int n = 1000000;
         int* randomArray = SortTestHelper::generateRandomArray(n, 0, n);
         //int* randomArray = SortTestHelper::generateNearlyOrderedArray(n, 10);
         int* copyArray = SortTestHelper::copyIntArray(randomArray, n);
@@ -30,10 +30,10 @@ int main(int argc, const char * argv[]) {
         //selectionSort(randomArray, n);
         //SortTestHelper::printArray(randomArray, n);
         
-        SortTestHelper::testSort("SelectionSort", SortAlgorigthm::selectionSort, randomArray, n);
-        SortTestHelper::testSort("InsertSort", SortAlgorigthm::insertSort, copyArray, n);
-        SortTestHelper::testSort("InsertSort2", SortAlgorigthm::insertSort2, copyArray2, n);
-        SortTestHelper::testSort("InsertSort3", SortAlgorigthm::insertSort3, copyArray3, n);
+       // SortTestHelper::testSort("SelectionSort", SortAlgorigthm::selectionSort, randomArray, n);
+       // SortTestHelper::testSort("InsertSort", SortAlgorigthm::insertSort, copyArray, n);
+       //  SortTestHelper::testSort("InsertSort2", SortAlgorigthm::insertSort2, copyArray2, n);
+       // SortTestHelper::testSort("InsertSort3", SortAlgorigthm::insertSort3, copyArray3, n);
         SortTestHelper::testSort("MergeSort", SortAlgorigthm::merageSort, copyArray4, n);
         
         delete [] randomArray;

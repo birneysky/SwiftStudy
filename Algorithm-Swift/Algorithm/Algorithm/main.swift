@@ -8,7 +8,7 @@
 
 import Foundation
 
-let n = 100000
+let n = 1000000
 var times = 200
 
 var array = SortTestHelper.generateRandomIntArray(n: n, rangeL: 0, rangeR: n)
