@@ -27,6 +27,20 @@ func selectSort<T:Comparable>(array: inout [T]){
     }
 }
 
+//func selectSort<T:Comparable>(array: inout [T], by:((T,T)->Bool) = {$0 < $1}){
+//    let n = array.count
+//    for i in 0..<n{
+//        var minIndex = i
+//        ///寻找[i,n)区间内的最小值
+//        for j in i ..< n{
+//            if by(array[j],array[minIndex]) {
+//                minIndex = j
+//            }
+//        }
+//        swap(&array[i], &array[minIndex])
+//    }
+//}
+
 
 /// 系统内置的sort函数的包装，不清楚使用什么排序，猜测是快速排序
 ///
@@ -113,21 +127,69 @@ func insertSort2<T:Comparable>(array: inout [T]){
     }
 }
 
-//private func mergeSort<T:Comparable>
 
-//func selectSort<T:Comparable>(array: inout [T], by:((T,T)->Bool) = {$0 < $1}){
-//    let n = array.count
-//    for i in 0..<n{
-//        var minIndex = i
-//        ///寻找[i,n)区间内的最小值
-//        for j in i ..< n{
-//            if by(array[j],array[minIndex]) {
-//                minIndex = j
-//            }
-//        }
-//        swap(&array[i], &array[minIndex])
-//    }
-//}
+/// 将arr[left,middle]和【middle,right]两部分进行归并
+///
+/// - Parameters:
+///   - array: 带归并数组
+///   - left: left
+///   - middle: midle
+///   - right: right
+private func __merge<T:Comparable>(array: inout [T], left: Int, middle: Int, right: Int){
+    var aux = [T]()////auxiliar
+    for i in left...right {
+        aux.append(array[i])
+    }
+    
+    var i = left, j = middle + 1
+    for k in left...right{
+        
+        /// i,j 的位置
+        if i > middle{
+            array[k] = aux[j-left]
+            j += 1
+        }
+        else if j > right{
+            array[k] = aux[i-left]
+            i += 1
+        }
+       else if aux[i-left] < aux[j-left] {
+            array[k] = aux[i-left]
+            i += 1
+        }
+        else{
+            array[k] = aux[j-left]
+            j += 1
+        }
+        
+    }
+    
+}
+
+/// 递归使用归并排序，对arr[left,right]的范围进行排序
+///
+/// - Parameters:
+///   - array: 待排序数组
+///   - left: left
+///   - right: right
+private func __mergeSort<T:Comparable>(array: inout [T], left: Int, right: Int){
+    if left >= right {
+        return
+    }
+    
+    let middle = (right - left) / 2 + left
+    __mergeSort(array: &array, left: left, right: middle)
+    __mergeSort(array: &array, left: middle + 1, right: right)
+    __merge(array: &array, left: left, middle: middle, right: right)
+    
+}
+
+
+public func mergeSort<T:Comparable>(array: inout [T]){
+    let n = array.count
+    __mergeSort(array: &array, left: 0, right: n - 1)
+}
+
 
 
 
