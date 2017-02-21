@@ -17,9 +17,11 @@ var copyArray1 = array
 var copyArray2 = array
 var copyArray3 = array
 var copyArray4 = array
+var copyArray5 = array
 
-SortTestHelper.testSort(sortName: "SortInStdLibrary", algorighm: sortInStdLib, array: &copyArray1)
+//SortTestHelper.testSort(sortName: "SortInStdLibrary", algorighm: sortInStdLib, array: &copyArray1)
 //SortTestHelper.testSort(sortName: "SelectionSort", algorighm: selectSort, array: &array)
 //SortTestHelper.testSort(sortName: "InsertSort", algorighm: insertSort, array: &copyArray2)
 //SortTestHelper.testSort(sortName: "InsertSort2", algorighm: insertSort2, array: &copyArray3)
-SortTestHelper.testSort(sortName: "MergeSort", algorighm: mergeSort, array: &copyArray4)
+//SortTestHelper.testSort(sortName: "MergeSort", algorighm: mergeSort, array: &copyArray4)
+SortTestHelper.testSort(sortName: "QuickSort", algorighm: quickSort, array: &copyArray5)

@@ -268,7 +268,112 @@ namespace SortAlgorigthm {
     void merageSort(T arr[] ,int n) {
         __merageSort(arr, 0, n-1);
     }
+    
+    
+    
+    /**
+     对array[l...r]部分进行partition
 
+     @param array 数组
+     @param l l
+     @param r r
+     @return 返回p，是的array[l...p-1] < array[p], array[p+1...r] > array[p]
+     */
+    template<typename T>
+    int partition(T array[], int l, int r){
+        
+        T v = array[l];
+        
+        int j = l;
+        for ( int i = l+1; i <= r; i++){
+            if(array[i] < v){
+                j++;
+                std::swap(array[j],array[i]);
+            }
+        }
+        std::swap(array[l],array[j]);
+        return j;
+    }
+    
+    
+    template<typename T>
+    int partition2(T array[], int l, int r){
+        
+        int randomIndex = rand() % (r -l + 1) + l;
+        
+        std::swap(array[l], array[randomIndex]);
+        
+        T v = array[l];
+        
+        int j = l;
+        for ( int i = l+1; i <= r; i++){
+            if(array[i] < v){
+                j++;
+                std::swap(array[j],array[i]);
+            }
+        }
+        std::swap(array[l],array[j]);
+        return j;
+    }
+    
+    /**
+     
+     v   < v 
+     */
+    template<typename T>
+    int partition3(T array[], int l, int r){
+        
+        int randomIndex = rand() % (r -l + 1) + l;
+        
+        std::swap(array[l], array[randomIndex]);
+        
+        T v = array[l];
+        
+        int j = l;
+        for ( int i = l+1; i <= r; i++){
+            if(array[i] < v){
+                j++;
+                std::swap(array[j],array[i]);
+            }
+        }
+        std::swap(array[l],array[j]);
+        return j;
+    }
+    
+    template<typename T>
+    void quickSort(T array[], int l , int r){
+        if(l >= r){
+            return;
+        }
+        
+        int p = partition(array, l, r);
+        quickSort(array,l,p-1);
+        quickSort(array,p+1,r);
+    }
+    
+    template<typename T>
+    void quickSort2(T array[], int l , int r){
+        if(l >= r){
+            return;
+        }
+        
+        int p = partition2(array, l, r);
+        quickSort2(array,l,p-1);
+        quickSort2(array,p+1,r);
+    }
+    
+
+    template<typename T>
+    void quickSort(T array[], int n){
+        quickSort(array,0, n-1);
+    }
+    
+    template<typename T>
+    void quickSort2(T array[], int n){
+        srand((unsigned int)time(nullptr));
+        quickSort2(array, 0,  n-1);
+    }
+    
     
 }
 

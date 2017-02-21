@@ -10,7 +10,7 @@
 
 #include "SortTestHelper.hpp"
 #include "SortAlgorithm.hpp"
-
+#include "BSTTestHelper.hpp"
 
 
 
@@ -20,27 +20,33 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Hello, World!");
         
         int n = 1000000;
-        int* randomArray = SortTestHelper::generateRandomArray(n, 0, n);
-        //int* randomArray = SortTestHelper::generateNearlyOrderedArray(n, 10);
+        //int* randomArray = SortTestHelper::generateRandomArray(n, 0, n);
+        int* randomArray = SortTestHelper::generateNearlyOrderedArray(n, 10);
         int* copyArray = SortTestHelper::copyIntArray(randomArray, n);
         int* copyArray2 = SortTestHelper::copyIntArray(randomArray, n);
         int* copyArray3 = SortTestHelper::copyIntArray(randomArray, n);
         int* copyArray4 = SortTestHelper::copyIntArray(randomArray, n);
+        int* copyArray5 = SortTestHelper::copyIntArray(randomArray, n);
+        int* copyArray6 = SortTestHelper::copyIntArray(randomArray, n);
+
         
-        //selectionSort(randomArray, n);
-        //SortTestHelper::printArray(randomArray, n);
-        
-       // SortTestHelper::testSort("SelectionSort", SortAlgorigthm::selectionSort, randomArray, n);
-       // SortTestHelper::testSort("InsertSort", SortAlgorigthm::insertSort, copyArray, n);
-       //  SortTestHelper::testSort("InsertSort2", SortAlgorigthm::insertSort2, copyArray2, n);
-       // SortTestHelper::testSort("InsertSort3", SortAlgorigthm::insertSort3, copyArray3, n);
+//        SortTestHelper::testSort("SelectionSort", SortAlgorigthm::selectionSort, randomArray, n);
+//        SortTestHelper::testSort("InsertSort", SortAlgorigthm::insertSort, copyArray, n);
+//        SortTestHelper::testSort("InsertSort2", SortAlgorigthm::insertSort2, copyArray2, n);
+//        SortTestHelper::testSort("InsertSort3", SortAlgorigthm::insertSort3, copyArray3, n);
         SortTestHelper::testSort("MergeSort", SortAlgorigthm::merageSort, copyArray4, n);
-        
+        //SortTestHelper::testSort("QuickSort", SortAlgorigthm::quickSort, copyArray5, n);
+        SortTestHelper::testSort("QuickSort2", SortAlgorigthm::quickSort2, copyArray6, n);
         delete [] randomArray;
         delete [] copyArray;
         delete [] copyArray2;
         delete [] copyArray3;
         delete [] copyArray4;
+        delete [] copyArray5;
+
+    
+        //BSTTestHelper::testBST();
+        
     }
     return 0;
 }

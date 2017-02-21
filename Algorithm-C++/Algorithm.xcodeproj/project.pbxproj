@@ -11,6 +11,10 @@
 		740770621E44848000556354 /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 740770601E44848000556354 /* List.cpp */; };
 		7417814D1E42DA03006FDD2E /* SortTestHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7417814B1E42DA03006FDD2E /* SortTestHelper.cpp */; };
 		746E28581E407FE5005FAF7C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 746E28571E407FE5005FAF7C /* main.mm */; };
+		DB33BC8C1E5C19480006A669 /* BST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB33BC8A1E5C19480006A669 /* BST.cpp */; };
+		DB33BC8F1E5C2A540006A669 /* BSTTestHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB33BC8D1E5C2A540006A669 /* BSTTestHelper.cpp */; };
+		DB33BC921E5C2C130006A669 /* FileOps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB33BC901E5C2C130006A669 /* FileOps.cpp */; };
+		DB33BC951E5C2DDC0006A669 /* SequenceST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB33BC931E5C2DDC0006A669 /* SequenceST.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +38,15 @@
 		7417814C1E42DA03006FDD2E /* SortTestHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SortTestHelper.hpp; sourceTree = "<group>"; };
 		746E28541E407FE5005FAF7C /* Algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		746E28571E407FE5005FAF7C /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		DB33BC8A1E5C19480006A669 /* BST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BST.cpp; sourceTree = "<group>"; };
+		DB33BC8B1E5C19480006A669 /* BST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BST.hpp; sourceTree = "<group>"; };
+		DB33BC8D1E5C2A540006A669 /* BSTTestHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BSTTestHelper.cpp; sourceTree = "<group>"; };
+		DB33BC8E1E5C2A540006A669 /* BSTTestHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BSTTestHelper.hpp; sourceTree = "<group>"; };
+		DB33BC901E5C2C130006A669 /* FileOps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileOps.cpp; sourceTree = "<group>"; };
+		DB33BC911E5C2C130006A669 /* FileOps.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FileOps.hpp; sourceTree = "<group>"; };
+		DB33BC931E5C2DDC0006A669 /* SequenceST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceST.cpp; sourceTree = "<group>"; };
+		DB33BC941E5C2DDC0006A669 /* SequenceST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SequenceST.hpp; sourceTree = "<group>"; };
+		DB33BC961E5C31110006A669 /* bible.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bible.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +79,22 @@
 		746E28561E407FE5005FAF7C /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				DB33BC961E5C31110006A669 /* bible.txt */,
 				746E28571E407FE5005FAF7C /* main.mm */,
 				740770601E44848000556354 /* List.cpp */,
 				740770611E44848000556354 /* List.hpp */,
+				DB33BC8A1E5C19480006A669 /* BST.cpp */,
+				DB33BC8B1E5C19480006A669 /* BST.hpp */,
+				DB33BC931E5C2DDC0006A669 /* SequenceST.cpp */,
+				DB33BC941E5C2DDC0006A669 /* SequenceST.hpp */,
 				7407705E1E44759D00556354 /* SortAlgorithm.hpp */,
 				7407705D1E44759D00556354 /* SortAlgorithm.cpp */,
 				7417814C1E42DA03006FDD2E /* SortTestHelper.hpp */,
 				7417814B1E42DA03006FDD2E /* SortTestHelper.cpp */,
+				DB33BC8D1E5C2A540006A669 /* BSTTestHelper.cpp */,
+				DB33BC8E1E5C2A540006A669 /* BSTTestHelper.hpp */,
+				DB33BC901E5C2C130006A669 /* FileOps.cpp */,
+				DB33BC911E5C2C130006A669 /* FileOps.hpp */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -135,9 +157,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				746E28581E407FE5005FAF7C /* main.mm in Sources */,
+				DB33BC921E5C2C130006A669 /* FileOps.cpp in Sources */,
+				DB33BC8C1E5C19480006A669 /* BST.cpp in Sources */,
 				740770621E44848000556354 /* List.cpp in Sources */,
 				7407705F1E44759D00556354 /* SortAlgorithm.cpp in Sources */,
 				7417814D1E42DA03006FDD2E /* SortTestHelper.cpp in Sources */,
+				DB33BC8F1E5C2A540006A669 /* BSTTestHelper.cpp in Sources */,
+				DB33BC951E5C2DDC0006A669 /* SequenceST.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -192,4 +192,57 @@ public func mergeSort<T:Comparable>(array: inout [T]){
 
 
 
+/// 使的数组array[left...right]部分进行partition操作
+///
+/// - Parameters:
+///   - array: 数组
+///   - left: left
+///   - right: right
+/// - Returns: 返回p ，使得的array[left...p-1] < array[p], array[p+1...right] > array[p]
+private func partition<T:Comparable>(array: inout [T], left: Int, right: Int) -> Int{
+    
+    let v = array[left]
+    
+    ///arra[left+1...j] < v array[j+1...i) > v
+    /// i表示当前正在考察元素的索引
+    var j = left
+    for i in left+1...right{
+        if array[i] < v {
+            j += 1
+            if j != i { swap(&array[j], &array[i]) }
+            //(array[j],array[i]) = (array[i],array[j])
+        }
+    }
+    if left != j {
+        swap(&array[left], &array[j])
+    }
+    //(array[left],array[j]) = (array[j],array[left])
+    return j
+}
+
+
+/// 对数组array[left...right]部分进行快速排序
+///
+/// - Parameters:
+///   - array: right
+///   - left: left
+///   - right: right
+private func quickSort<T:Comparable>(array: inout [T], left: Int, right: Int){
+    
+    if left >= right {
+        return
+    }
+    
+    let p = partition(array: &array, left: left, right: right)
+    quickSort(array: &array, left: left, right: p-1)
+    quickSort(array: &array, left: p+1, right: right);
+    
+}
+
+public func quickSort<T:Comparable>(array: inout [T]){
+    let n = array.count
+    quickSort(array: &array, left: 0, right: n-1)
+}
+
+
 
