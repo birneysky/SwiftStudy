@@ -318,7 +318,7 @@ namespace SortAlgorigthm {
     
     /**
      
-     v   < v 
+     v   < v
      */
     template<typename T>
     int partition3(T array[], int l, int r){
