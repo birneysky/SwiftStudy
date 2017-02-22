@@ -329,14 +329,17 @@ namespace SortAlgorigthm {
         
         T v = array[l];
         
-        int j = l;
-        for ( int i = l+1; i <= r; i++){
-            if(array[i] < v){
-                j++;
-                std::swap(array[j],array[i]);
-            }
+        /// array[l+1...i] <= v array[j...r] >= v
+        int i = l+1,j = r;
+        while(true){
+            while ( i <= r && array[i] < v)  i ++;
+            while ( j>= l+1 && array[j] > v) j --;
+            if(i > j) break;
+            std::swap(array[i], array[j]);
+            i ++;
+            j --;
         }
-        std::swap(array[l],array[j]);
+        std::swap(array[l], array[j]);
         return j;
     }
     
@@ -362,6 +365,17 @@ namespace SortAlgorigthm {
         quickSort2(array,p+1,r);
     }
     
+    
+    template<typename T>
+    void quickSort3(T array[], int l, int r){
+        if (l >= r) {
+            return;
+        }
+        int p = partition3(array, l, r);
+        quickSort3(array, l, p-1);
+        quickSort3(array, p+1, r);
+    }
+    
 
     template<typename T>
     void quickSort(T array[], int n){
@@ -375,6 +389,11 @@ namespace SortAlgorigthm {
     }
     
     
+    template<typename T>
+    void quickSort3(T array[], int n){
+        srand((unsigned int)time(nullptr));
+        quickSort3(array, 0, n-1);
+    }
 }
 
 #endif /* SortAlgorithm_hpp */

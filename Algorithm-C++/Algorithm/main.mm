@@ -28,6 +28,7 @@ int main(int argc, const char * argv[]) {
         int* copyArray4 = SortTestHelper::copyIntArray(randomArray, n);
         int* copyArray5 = SortTestHelper::copyIntArray(randomArray, n);
         int* copyArray6 = SortTestHelper::copyIntArray(randomArray, n);
+        int* copyArray7 = SortTestHelper::copyIntArray(randomArray, n);
 
         
 //        SortTestHelper::testSort("SelectionSort", SortAlgorigthm::selectionSort, randomArray, n);
@@ -37,6 +38,7 @@ int main(int argc, const char * argv[]) {
         SortTestHelper::testSort("MergeSort", SortAlgorigthm::merageSort, copyArray4, n);
         //SortTestHelper::testSort("QuickSort", SortAlgorigthm::quickSort, copyArray5, n);
         SortTestHelper::testSort("QuickSort2", SortAlgorigthm::quickSort2, copyArray6, n);
+        SortTestHelper::testSort("QuickSort3", SortAlgorigthm::quickSort3, copyArray7, n);
         delete [] randomArray;
         delete [] copyArray;
         delete [] copyArray2;
