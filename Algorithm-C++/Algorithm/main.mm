@@ -20,8 +20,8 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Hello, World!");
         
         int n = 1000000;
-        //int* randomArray = SortTestHelper::generateRandomArray(n, 0, n);
-        int* randomArray = SortTestHelper::generateNearlyOrderedArray(n, 10);
+        //int* randomArray = SortTestHelper::generateRandomArray(n, 0, 10);
+        int* randomArray = SortTestHelper::generateNearlyOrderedArray(n, 20);
         int* copyArray = SortTestHelper::copyIntArray(randomArray, n);
         int* copyArray2 = SortTestHelper::copyIntArray(randomArray, n);
         int* copyArray3 = SortTestHelper::copyIntArray(randomArray, n);
@@ -29,25 +29,32 @@ int main(int argc, const char * argv[]) {
         int* copyArray5 = SortTestHelper::copyIntArray(randomArray, n);
         int* copyArray6 = SortTestHelper::copyIntArray(randomArray, n);
         int* copyArray7 = SortTestHelper::copyIntArray(randomArray, n);
-
+        int* copyArray8 = SortTestHelper::copyIntArray(randomArray, n);
         
 //        SortTestHelper::testSort("SelectionSort", SortAlgorigthm::selectionSort, randomArray, n);
 //        SortTestHelper::testSort("InsertSort", SortAlgorigthm::insertSort, copyArray, n);
 //        SortTestHelper::testSort("InsertSort2", SortAlgorigthm::insertSort2, copyArray2, n);
-//        SortTestHelper::testSort("InsertSort3", SortAlgorigthm::insertSort3, copyArray3, n);
+        SortTestHelper::testSort("InsertSort3", SortAlgorigthm::insertSort3, copyArray3, n);
         SortTestHelper::testSort("MergeSort", SortAlgorigthm::merageSort, copyArray4, n);
         //SortTestHelper::testSort("QuickSort", SortAlgorigthm::quickSort, copyArray5, n);
-        SortTestHelper::testSort("QuickSort2", SortAlgorigthm::quickSort2, copyArray6, n);
+        //SortTestHelper::testSort("QuickSort2", SortAlgorigthm::quickSort2, copyArray6, n);
         SortTestHelper::testSort("QuickSort3", SortAlgorigthm::quickSort3, copyArray7, n);
+        SortTestHelper::testSort("QuickSort4", SortAlgorigthm::quickSort4, copyArray8, n);
+        
         delete [] randomArray;
         delete [] copyArray;
         delete [] copyArray2;
         delete [] copyArray3;
         delete [] copyArray4;
         delete [] copyArray5;
-
+        delete [] copyArray6;
+        delete [] copyArray7;
+        delete [] copyArray8;
     
         //BSTTestHelper::testBST();
+        
+        BSTTestHelper::testBSTTraversal();
+        
         
     }
     return 0;

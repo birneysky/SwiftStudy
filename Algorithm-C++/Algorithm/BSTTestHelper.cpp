@@ -61,3 +61,36 @@ void BSTTestHelper::testBST()
         
     }
 }
+
+
+void BSTTestHelper::testBSTTraversal()
+{
+    int array[] = {28,16,30,13,22,29,42};
+    int n = sizeof(array) / sizeof(int);
+    BST<int,string> bst;
+    
+    for( int i = 0 ; i < n; i++){
+        char buf[10] = {};
+        sprintf(buf, "%d",array[i]);
+        bst.insert(array[i], std::string(buf));
+    }
+    
+    cout << "BST level order: ";
+    bst.levelOrder();
+    cout << endl;
+    
+    cout << "BST post order: ";
+    bst.postOrder();
+    cout << endl;
+    
+    
+    cout << "BST in Order: ";
+    bst.inOrder();
+    cout << endl;
+    
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    bst.minimum();
+}

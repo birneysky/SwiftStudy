@@ -13,6 +13,8 @@
 namespace BSTTestHelper {
     
     void testBST();
+    void testBSTTraversal();
+    
 }
 
 

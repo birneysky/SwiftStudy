@@ -377,6 +377,56 @@ namespace SortAlgorigthm {
     }
     
 
+    /**
+     l                            i                  r
+     _________________________________________________
+     |   |          |           |   |      |         |
+     | v |   < v    |   = v     | e |      |   > v   |
+     |___|__________|___________|___|______|_________|
+                  lt                        gt
+     
+     i 表示当前正在考虑的元素e索引
+     lt 表示当前 <v 区域的最后一个元素索引
+     gt 表示当前 >v 区域的第一个元素索引
+     */
+    template<typename T>
+    void quickSort4(T array[], int l,  int r){
+        if (l >= r) {
+            return;
+        }
+        
+        const int randomIndex = random() % (r -l +1) + l;
+        std::swap(array[l], array[randomIndex]);
+        T v = array[l];
+        
+        int i = l + 1;
+        int lt = l;
+        int gt = r + 1;
+        
+        while (i < gt) {
+            if(array[i] < v){
+                lt++;
+                std::swap(array[i],array[lt]);
+                i++;
+            }
+            else  if(array[i] > v){
+                gt --;
+                std::swap(array[i],array[gt]);
+            }
+            else { ///array[i] == v
+                i++;
+            }
+        }
+        
+        std::swap(array[l],array[lt]);
+        
+        quickSort4(array, l, lt - 1);
+        quickSort4(array, gt, r);
+        
+        
+    }
+    
+
     template<typename T>
     void quickSort(T array[], int n){
         quickSort(array,0, n-1);
@@ -393,6 +443,12 @@ namespace SortAlgorigthm {
     void quickSort3(T array[], int n){
         srand((unsigned int)time(nullptr));
         quickSort3(array, 0, n-1);
+    }
+    
+    template<typename T>
+    void quickSort4(T array[], int n){
+        srand((unsigned int)time(nullptr));
+        quickSort4(array, 0, n-1);
     }
 }
 

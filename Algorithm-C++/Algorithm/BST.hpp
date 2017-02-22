@@ -10,6 +10,8 @@
 #define BST_hpp
 
 #include <iostream>
+#include <queue>
+#include <cassert>
 /**
  二分搜索树
  每个节点的值大于它的左孩子，
@@ -23,6 +25,9 @@
    16      30
   /  \    /  \
  13  22  29  42
+ 
+ 通过上面的定义可以知道，如果一个节点没有左孩子，那么说明这个节点是树中最小的元素
+ 如果一个节点没有右孩子，那么说明这个节点是树中最大的元素。
  
  Binery Search Tree
  
@@ -41,8 +46,8 @@ private:
         Node(Key key, Value value){
             this->key = key;
             this->value = value;
-            this->right = NULL;
-            this->left = NULL;
+            this->right = nullptr;
+            this->left = nullptr;
         }
     };
     
@@ -150,6 +155,11 @@ private:
         }
     }
     
+    ///在node为根的二分搜索书中寻找键值最小的节点
+    Node* minimum(Node* node){
+        return nullptr;
+    }
+    
 public:
     BST(){
         root = nullptr;
@@ -197,6 +207,33 @@ public:
     ///后序遍历
     void postOrder(){
         postOrder(root);
+    }
+    
+    ///层序遍历
+    void levelOrder(){
+        
+        std::queue<Node*> queue;
+        assert(root != nullptr);
+        queue.push(root);
+        while(!queue.empty()){
+            Node* node = queue.front();
+            queue.pop();
+            
+            std::cout << node->key << " ";
+            
+            if (node->left) {
+                queue.push(node->left);
+            }
+            if(node->right){
+                queue.push(node->right);
+            }
+        }
+    }
+    /// 寻找最小键值
+    Key minimum(){
+        assert(count != 0);
+        Node* minNode = minimum(root);
+        return minNode->key;
     }
 };
 
