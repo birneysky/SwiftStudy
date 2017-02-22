@@ -92,5 +92,7 @@ void BSTTestHelper::testBSTTraversal()
     bst.preOrder();
     cout << endl;
     
-    bst.minimum();
+    cout << "BST minmum: " << bst.minimum() << endl;
+    
+    cout << "BST maxmum: " << bst.maxmum() << endl;
 }

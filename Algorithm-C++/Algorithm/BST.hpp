@@ -157,7 +157,29 @@ private:
     
     ///在node为根的二分搜索书中寻找键值最小的节点
     Node* minimum(Node* node){
-        return nullptr;
+        if(nullptr == node->left){
+            return node;
+        }
+        return minimum(node->left);
+    }
+    
+    ///在以node为根的二分搜索数中寻找键值最大的节点
+    Node* maximum(Node* node){
+        if (nullptr == node->right) {
+            return node;
+        }
+        return maximum(node->right);
+    }
+    
+    /// 删除以node为根的二分搜索树种键值最小的节点，返回删除后整棵树新的根
+    Node* removeMin(Node* node){
+        
+//        Node* root = node;
+//        while (nullptr != minNode->left) {
+//            minNode = minNode->left;
+//        }
+        
+        
     }
     
 public:
@@ -234,6 +256,21 @@ public:
         assert(count != 0);
         Node* minNode = minimum(root);
         return minNode->key;
+    }
+    
+    /// 寻找最大值
+    Key maximum(){
+        assert(count != 0);
+        Node* maxNode = maximum(root);
+        return maxNode->key;
+    }
+    
+    /// 从二分搜索书中删除最小键值所在的节点
+    void removeMin(){
+        
+        if(root){
+            root = removeMin(root);
+        }
     }
 };
 
