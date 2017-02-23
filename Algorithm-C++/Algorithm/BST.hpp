@@ -49,6 +49,13 @@ private:
             this->right = nullptr;
             this->left = nullptr;
         }
+        
+        Node(const Node*& node){
+            this->key = node->key;
+            this->value = value;
+            this->right = node->key;
+            this->left = node->key;
+        }
     };
     
     Node* root;
@@ -222,6 +229,51 @@ private:
         return node;
     }
     
+    Node* remove(Node* node, Key key){
+        
+        if (node == nullptr) {
+            return nullptr;
+        }
+
+        if( key > node->key){
+            node->right = remove(node->right, key);
+        }
+        else if(key < node->key){
+            node->left = remove(node->left, key);
+        }
+        else{ ///key == node->key
+            if (node->left == nullptr) {
+                Node* rightNode = node->right;
+                delete node;
+                count --;
+                return rightNode;
+            }
+            
+            if( node->right == nullptr){
+                Node* leftNode = node->left;
+                delete node;
+                count --;
+                return leftNode;
+            }
+            
+            Node* successor = new Node(minimum(node->right));
+            count ++;
+            
+            successor->right = removeMin(node->right);
+            successor->left = node->left;
+            
+            delete node;
+            count --;
+            
+            return successor;
+            
+        }
+
+        
+        return node;
+    }
+    
+    
 public:
     BST(){
         root = nullptr;
@@ -328,6 +380,12 @@ public:
             root = removeMax(root);
         }
     }
+    
+    /// 删除键值为key的节点
+    void remove(Key key){
+        root = remove(root,key);
+    }
+    
 };
 
 #endif /* BST_hpp */
