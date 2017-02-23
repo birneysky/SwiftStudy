@@ -54,7 +54,10 @@ int main(int argc, const char * argv[]) {
         //BSTTestHelper::testBST();
         
         BSTTestHelper::testBSTTraversal();
-        
+        std::cout << std::endl;
+        BSTTestHelper::testRemoveMin();
+        std::cout << std::endl;
+        BSTTestHelper::testRemoveMax();
         
     }
     return 0;

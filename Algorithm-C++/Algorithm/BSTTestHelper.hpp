@@ -14,7 +14,8 @@ namespace BSTTestHelper {
     
     void testBST();
     void testBSTTraversal();
-    
+    void testRemoveMin();
+    void testRemoveMax();
 }
 
 

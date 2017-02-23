@@ -75,16 +75,16 @@ void BSTTestHelper::testBSTTraversal()
         bst.insert(array[i], std::string(buf));
     }
     
-    cout << "BST level order: ";
+    cout << "BST level order   : ";
     bst.levelOrder();
     cout << endl;
     
-    cout << "BST post order: ";
+    cout << "BST post order    : ";
     bst.postOrder();
     cout << endl;
     
     
-    cout << "BST in Order: ";
+    cout << "BST in Order      :";
     bst.inOrder();
     cout << endl;
     
@@ -94,5 +94,120 @@ void BSTTestHelper::testBSTTraversal()
     
     cout << "BST minmum: " << bst.minimum() << endl;
     
-    cout << "BST maxmum: " << bst.maxmum() << endl;
+    cout << "BST maxmum: " << bst.maximum() << endl;
+    
+}
+
+
+void BSTTestHelper::testRemoveMin(){
+    
+    int array[] = {28,16,30,13,22,29,42};
+    int n = sizeof(array) / sizeof(int);
+    BST<int,string> bst;
+    
+    for( int i = 0 ; i < n; i++){
+        char buf[10] = {};
+        sprintf(buf, "%d",array[i]);
+        bst.insert(array[i], std::string(buf));
+    }
+    
+    cout << "=========remove minNode=========" << endl;
+    bst.removeMin();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    cout << "=========remove minNode=========" << endl;
+    bst.removeMin();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    cout << "=========remove minNode=========" << endl;
+    bst.removeMin();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    cout << "=========remove minNode=========" << endl;
+    bst.removeMin();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    cout << "=========remove minNode=========" << endl;
+    bst.removeMin();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    cout << "=========remove minNode=========" << endl;
+    bst.removeMin();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    
+    cout << "=========remove minNode=========" << endl;
+    bst.removeMin();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+
+}
+
+void BSTTestHelper::testRemoveMax(){
+    int array[] = {28,16,30,13,22,29,42};
+    int n = sizeof(array) / sizeof(int);
+    BST<int,string> bst;
+    
+    for( int i = 0 ; i < n; i++){
+        char buf[10] = {};
+        sprintf(buf, "%d",array[i]);
+        bst.insert(array[i], std::string(buf));
+    }
+    
+    cout << "=========remove maxNode=========" << endl;
+    bst.removeMax();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    cout << "=========remove maxNode=========" << endl;
+    bst.removeMax();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    cout << "=========remove maxNode=========" << endl;
+    bst.removeMax();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    cout << "=========remove maxNode=========" << endl;
+    bst.removeMax();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    cout << "=========remove maxNode=========" << endl;
+    bst.removeMax();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    cout << "=========remove maxNode=========" << endl;
+    bst.removeMax();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+    
+    
+    cout << "=========remove maxNode=========" << endl;
+    bst.removeMax();
+    cout << "BST previous Order: ";
+    bst.preOrder();
+    cout << endl;
+
 }

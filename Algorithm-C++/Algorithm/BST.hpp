@@ -171,15 +171,55 @@ private:
         return maximum(node->right);
     }
     
-    /// 删除以node为根的二分搜索树种键值最小的节点，返回删除后整棵树新的根
-    Node* removeMin(Node* node){
-        
-//        Node* root = node;
+    /// 删除以node为根的二分搜索树种键值最小的节点，返回删除后整棵树新的根  非递归版本
+//    Node* removeMin(Node* node){
+//        Node* parentNode = node;
+//        Node* minNode = node;
 //        while (nullptr != minNode->left) {
+//            parentNode = minNode;
 //            minNode = minNode->left;
 //        }
+//
+//        Node* rootNode = nullptr;
+//        if(this->root != minNode){
+//            parentNode->left = minNode->right;
+//            rootNode = node;
+//        }
+//        else
+//            rootNode = minNode->right;
+//        
+//        count --;
+//        delete minNode;
+//        return rootNode;
+//        
+//    }
+    
+    
+    /// 删除以node为根的二分搜索树种键值最小的节点，返回删除后整棵树新的根 递归版本
+    Node* removeMin(Node* node){
+        if(nullptr == node->left){
+            Node* rightNode = node->right;
+            count --;
+            delete node;
+            return rightNode;
+        }
         
+        node->left = removeMin(node->left);
+        return node;
+    }
+    
+    
+    /// 删除以node为根的二分搜索树中键值最大的节点，返回删除后整颗树新的根，递归版本；
+    Node* removeMax(Node* node){
+        if(nullptr == node->right){
+            Node* leftNode = node->left;
+            count --;
+            delete node;
+            return leftNode;
+        }
         
+        node->right = removeMax(node->right);
+        return node;
     }
     
 public:
@@ -218,17 +258,26 @@ public:
     
     ///前序遍历
     void preOrder(){
-        preOrder(root);
+        if(root)
+            preOrder(root);
+        else
+            std::cout << "BST is empty";
     }
     
     ///中序遍历
     void inOrder(){
-        inOrder(root);
+        if(root)
+            inOrder(root);
+        else
+            std::cout << "BST is empty";
     }
     
     ///后序遍历
     void postOrder(){
-        postOrder(root);
+        if(root)
+            postOrder(root);
+        else
+            std::cout << "BST is empty";
     }
     
     ///层序遍历
@@ -251,6 +300,7 @@ public:
             }
         }
     }
+    
     /// 寻找最小键值
     Key minimum(){
         assert(count != 0);
@@ -267,9 +317,15 @@ public:
     
     /// 从二分搜索书中删除最小键值所在的节点
     void removeMin(){
-        
         if(root){
             root = removeMin(root);
+        }
+    }
+    
+    /// 从二分搜索书中删除最大键值所在的节点
+    void removeMax(){
+        if (root) {
+            root = removeMax(root);
         }
     }
 };
