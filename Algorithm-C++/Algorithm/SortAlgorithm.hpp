@@ -269,6 +269,24 @@ namespace SortAlgorigthm {
         __merageSort(arr, 0, n-1);
     }
     
+
+    
+    /**
+     自底向上归并排序
+     
+     
+     @param array 数组地址
+     @param n 数组长苏
+     */
+    template<typename T>
+    void merageSortBottomToUp(T array[] ,int n){
+        for (int size = 1; size <= n; size += size){
+            for (int i = 0; i + size < n; i += 2 * size){
+                __merage(array, i, i+size-1, std::min(i+ size*2 -1,n-1));
+            }
+        }
+    }
+    
     
     
     /**
@@ -317,6 +335,13 @@ namespace SortAlgorigthm {
     }
     
     /**
+     l                                             r
+     _______________________________________________
+     |   |          |   |            |   |         |
+     | v |   <= v   | e |            | e |   >= v  |
+     |___|__________|___|____________|___|_________|
+                      i -->       <--  j
+     
      
      v   < v
      */
