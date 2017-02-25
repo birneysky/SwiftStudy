@@ -9,8 +9,8 @@
 #ifndef MaxHeap_hpp
 #define MaxHeap_hpp
 
-#include <stdio.h>
-
+#include <iostream>
+#include <cassert>
 
 /**
  完全二叉树： 一个二叉树，除了最后一层节点之外，其它层所有节点个数必须是最大值
@@ -41,10 +41,20 @@ class MaxHeap{
 private:
     Item* data;
     int count;
+    int capacity;
+    
+    void shiftUp(int k){
+        
+        while ( k > 1 && data[k] > data[k/2]) {
+            std::swap(data[k], data[k/2]);
+             k = k / 2;
+        }
+    }
 public:
     MaxHeap(int capacity){
         data = new Item(capacity + 1);//从索引1开始，0不使用
         count = 0;
+        this->capacity = capacity;
     }
     
     ~MaxHeap(){
@@ -59,7 +69,12 @@ public:
         return count == 0;
     }
     
-    
+    void insert(Item item){
+        assert(count + 1 <= capacity);
+        data[count + 1] = item;
+        count ++;
+        shiftUp(count);
+    }
     
 };
 

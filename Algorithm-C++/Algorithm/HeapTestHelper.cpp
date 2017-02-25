@@ -12,6 +12,14 @@
 
 void  HeapTestHelper::testHeap()
 {
-    MaxHeap<int> maxHeap = MaxHeap<int>(100);
+    int n = 100;
+    MaxHeap<int> maxHeap = MaxHeap<int>(n);
+    std::cout << "max heap size : " << maxHeap.size() << std::endl;
+    
+    srand((unsigned int)(time(NULL)));
+    for( int i = 0; i <15; i++ ){
+        maxHeap.insert(rand() % 100);
+    }
+    
     std::cout << "max heap size : " << maxHeap.size() << std::endl;
 }
