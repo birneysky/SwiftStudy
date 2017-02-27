@@ -10,6 +10,8 @@
 		DB23E7E11E55A00F00B476E5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23E7E01E55A00F00B476E5 /* main.swift */; };
 		DB23E7E81E55A40B00B476E5 /* SortAlgorigthm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23E7E71E55A40B00B476E5 /* SortAlgorigthm.swift */; };
 		DB23E7EA1E55ABD500B476E5 /* SortTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23E7E91E55ABD500B476E5 /* SortTestHelper.swift */; };
+		DB40E8591E63CEEE00FDE8E1 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB40E8581E63CEEE00FDE8E1 /* Stack.swift */; };
+		DB40E85B1E63D18200FDE8E1 /* ExpressionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB40E85A1E63D18200FDE8E1 /* ExpressionParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,8 @@
 		DB23E7E01E55A00F00B476E5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		DB23E7E71E55A40B00B476E5 /* SortAlgorigthm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortAlgorigthm.swift; sourceTree = "<group>"; };
 		DB23E7E91E55ABD500B476E5 /* SortTestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortTestHelper.swift; sourceTree = "<group>"; };
+		DB40E8581E63CEEE00FDE8E1 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		DB40E85A1E63D18200FDE8E1 /* ExpressionParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressionParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				DB23E7E01E55A00F00B476E5 /* main.swift */,
 				DB23E7E91E55ABD500B476E5 /* SortTestHelper.swift */,
 				DB23E7E71E55A40B00B476E5 /* SortAlgorigthm.swift */,
+				DB40E8581E63CEEE00FDE8E1 /* Stack.swift */,
+				DB40E85A1E63D18200FDE8E1 /* ExpressionParser.swift */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -126,6 +132,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB40E85B1E63D18200FDE8E1 /* ExpressionParser.swift in Sources */,
+				DB40E8591E63CEEE00FDE8E1 /* Stack.swift in Sources */,
 				DB23E7E11E55A00F00B476E5 /* main.swift in Sources */,
 				DB23E7EA1E55ABD500B476E5 /* SortTestHelper.swift in Sources */,
 				DB23E7E81E55A40B00B476E5 /* SortAlgorigthm.swift in Sources */,
