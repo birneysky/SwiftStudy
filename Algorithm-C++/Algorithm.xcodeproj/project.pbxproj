@@ -11,6 +11,10 @@
 		740770621E44848000556354 /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 740770601E44848000556354 /* List.cpp */; };
 		7417814D1E42DA03006FDD2E /* SortTestHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7417814B1E42DA03006FDD2E /* SortTestHelper.cpp */; };
 		746E28581E407FE5005FAF7C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 746E28571E407FE5005FAF7C /* main.mm */; };
+		74D7D3191E617B76003984BF /* BinarySearchAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74D7D3171E617B76003984BF /* BinarySearchAlgorithm.cpp */; };
+		74D7D31C1E617FD2003984BF /* BinarySearchTestHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74D7D31A1E617FD2003984BF /* BinarySearchTestHelper.cpp */; };
+		74D7D31F1E61CFCC003984BF /* MaxHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74D7D31D1E61CFCC003984BF /* MaxHeap.cpp */; };
+		74D7D3221E61D47A003984BF /* HeapTestHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74D7D3201E61D47A003984BF /* HeapTestHelper.cpp */; };
 		DB33BC8C1E5C19480006A669 /* BST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB33BC8A1E5C19480006A669 /* BST.cpp */; };
 		DB33BC8F1E5C2A540006A669 /* BSTTestHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB33BC8D1E5C2A540006A669 /* BSTTestHelper.cpp */; };
 		DB33BC921E5C2C130006A669 /* FileOps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB33BC901E5C2C130006A669 /* FileOps.cpp */; };
@@ -38,6 +42,14 @@
 		7417814C1E42DA03006FDD2E /* SortTestHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SortTestHelper.hpp; sourceTree = "<group>"; };
 		746E28541E407FE5005FAF7C /* Algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		746E28571E407FE5005FAF7C /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		74D7D3171E617B76003984BF /* BinarySearchAlgorithm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinarySearchAlgorithm.cpp; sourceTree = "<group>"; };
+		74D7D3181E617B76003984BF /* BinarySearchAlgorithm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinarySearchAlgorithm.hpp; sourceTree = "<group>"; };
+		74D7D31A1E617FD2003984BF /* BinarySearchTestHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinarySearchTestHelper.cpp; sourceTree = "<group>"; };
+		74D7D31B1E617FD2003984BF /* BinarySearchTestHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinarySearchTestHelper.hpp; sourceTree = "<group>"; };
+		74D7D31D1E61CFCC003984BF /* MaxHeap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaxHeap.cpp; sourceTree = "<group>"; };
+		74D7D31E1E61CFCC003984BF /* MaxHeap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MaxHeap.hpp; sourceTree = "<group>"; };
+		74D7D3201E61D47A003984BF /* HeapTestHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeapTestHelper.cpp; sourceTree = "<group>"; };
+		74D7D3211E61D47A003984BF /* HeapTestHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HeapTestHelper.hpp; sourceTree = "<group>"; };
 		DB33BC8A1E5C19480006A669 /* BST.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BST.cpp; sourceTree = "<group>"; };
 		DB33BC8B1E5C19480006A669 /* BST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BST.hpp; sourceTree = "<group>"; };
 		DB33BC8D1E5C2A540006A669 /* BSTTestHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BSTTestHelper.cpp; sourceTree = "<group>"; };
@@ -89,9 +101,17 @@
 				DB33BC941E5C2DDC0006A669 /* SequenceST.hpp */,
 				7407705E1E44759D00556354 /* SortAlgorithm.hpp */,
 				7407705D1E44759D00556354 /* SortAlgorithm.cpp */,
+				74D7D31D1E61CFCC003984BF /* MaxHeap.cpp */,
+				74D7D31E1E61CFCC003984BF /* MaxHeap.hpp */,
+				74D7D3171E617B76003984BF /* BinarySearchAlgorithm.cpp */,
+				74D7D3181E617B76003984BF /* BinarySearchAlgorithm.hpp */,
 				7417814C1E42DA03006FDD2E /* SortTestHelper.hpp */,
 				7417814B1E42DA03006FDD2E /* SortTestHelper.cpp */,
 				DB33BC8D1E5C2A540006A669 /* BSTTestHelper.cpp */,
+				74D7D31A1E617FD2003984BF /* BinarySearchTestHelper.cpp */,
+				74D7D31B1E617FD2003984BF /* BinarySearchTestHelper.hpp */,
+				74D7D3201E61D47A003984BF /* HeapTestHelper.cpp */,
+				74D7D3211E61D47A003984BF /* HeapTestHelper.hpp */,
 				DB33BC8E1E5C2A540006A669 /* BSTTestHelper.hpp */,
 				DB33BC901E5C2C130006A669 /* FileOps.cpp */,
 				DB33BC911E5C2C130006A669 /* FileOps.hpp */,
@@ -157,12 +177,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				746E28581E407FE5005FAF7C /* main.mm in Sources */,
+				74D7D3221E61D47A003984BF /* HeapTestHelper.cpp in Sources */,
 				DB33BC921E5C2C130006A669 /* FileOps.cpp in Sources */,
 				DB33BC8C1E5C19480006A669 /* BST.cpp in Sources */,
 				740770621E44848000556354 /* List.cpp in Sources */,
+				74D7D31C1E617FD2003984BF /* BinarySearchTestHelper.cpp in Sources */,
 				7407705F1E44759D00556354 /* SortAlgorithm.cpp in Sources */,
 				7417814D1E42DA03006FDD2E /* SortTestHelper.cpp in Sources */,
+				74D7D31F1E61CFCC003984BF /* MaxHeap.cpp in Sources */,
 				DB33BC8F1E5C2A540006A669 /* BSTTestHelper.cpp in Sources */,
+				74D7D3191E617B76003984BF /* BinarySearchAlgorithm.cpp in Sources */,
 				DB33BC951E5C2DDC0006A669 /* SequenceST.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
