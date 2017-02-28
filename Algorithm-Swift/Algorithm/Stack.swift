@@ -11,6 +11,10 @@ import Foundation
 class Stack<T>{
     private var stack:[T]
     
+    var array:[T]{
+        return stack
+    }
+    
     init() {
         self.stack = [T]()
     }

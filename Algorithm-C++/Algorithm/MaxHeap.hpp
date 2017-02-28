@@ -167,8 +167,8 @@ public:
         int cur_tree_max_level_number = max_level_number;
         int index = 1;
         for( int level = 0 ; level < max_level ; level ++ ){
-            string line1 = string(max_level_number*3-1, ' ');
-            
+            string line1;// = string(max_level_number*3-1, ' ');
+            line1.append(max_level_number*3-1, ' ');
             int cur_level_number = min(count-int(pow(2,level))+1,int(pow(2,level)));
             bool isLeft = true;
             for( int index_cur_level = 0 ; index_cur_level < cur_level_number ; index ++ , index_cur_level ++ ){
@@ -180,7 +180,8 @@ public:
             if( level == max_level - 1 )
                 break;
             
-            string line2 = string(max_level_number*3-1, ' ');
+            string line2(max_level_number*3-1, ' ');// = string(max_level_number*3-1, ' ');
+            //line2.append(max_level_number*3-1, ' ');
             for( int index_cur_level = 0 ; index_cur_level < cur_level_number ; index_cur_level ++ )
                 putBranchInLine( line2 , index_cur_level , cur_tree_max_level_number*3-1 );
             cout<<line2<<endl;
