@@ -144,6 +144,8 @@ enum ArithmeticExpression{
 }
 
 
+
+/// [逆波兰表达式求解](http://blog.csdn.net/shiwazone/article/details/47067921)
 class ExpressionParser{
     private var expression: String
     private var  numStack: Stack<Sign>
@@ -213,7 +215,7 @@ class ExpressionParser{
     
     func evaluate(signs: [Sign]) -> Int?{
         
-        var caluateStatck = Stack<Sign>()
+        let caluateStatck = Stack<Sign>()
         for sign in signs{
             switch sign {
             case .Number(_):
