@@ -30,8 +30,11 @@ SortTestHelper.testSort(sortName: "QuickSort", algorighm: quickSort, array: &cop
 
 var stack = Stack<String>()
 
-var expressionParser = ExpressionParser(expression:"22+3*4+9/3+90-8#")///
+var expressionParser = ExpressionParser(expression:"22+3*4#")///
 
 let signs = expressionParser.parse()
 let a = expressionParser.evaluate(signs: signs);
+let b = expressionParser.calculate();
+
 print(a)
+print(b)

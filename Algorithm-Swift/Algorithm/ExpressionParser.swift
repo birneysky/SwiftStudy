@@ -117,30 +117,33 @@ enum Sign{
     
 }
 
-enum ArithmeticExpression{
+indirect enum ArithmeticExpression{
     case Number(Int)
-
+    case Addition(ArithmeticExpression,ArithmeticExpression)
+    case Multiplication(ArithmeticExpression,ArithmeticExpression)
+    case Subtraction(ArithmeticExpression,ArithmeticExpression)
+    case Division(ArithmeticExpression,ArithmeticExpression)
     
-//    private func evaluate(_ expression: ArithmeticExpression) -> Int{
-//        switch expression {
-//        case let .Number(value):
-//            return value
-//        case let .Addition(left,right):
-//            return evaluate(left) + evaluate(right)
-//        case let .Multiplication(left,right):
-//            return evaluate(left) * evaluate(right)
-//            
-//        case let .Subtraction(left,right):
-//            return evaluate(left) - evaluate(right);
-//        case let .Division(left,right):
-//            return evaluate(left) / evaluate(right);
-//        }
-//    }
-//    
-//    
-//    public func evaluate() -> Int{
-//        return evaluate(self)
-//    }
+    private func evaluate(_ expression: ArithmeticExpression) -> Int{
+        switch expression {
+        case let .Number(value):
+            return value
+        case let .Addition(left,right):
+            return evaluate(left) + evaluate(right)
+        case let .Multiplication(left,right):
+            return evaluate(left) * evaluate(right)
+            
+        case let .Subtraction(left,right):
+            return evaluate(left) - evaluate(right);
+        case let .Division(left,right):
+            return evaluate(left) / evaluate(right);
+        }
+    }
+    
+    
+    public func evaluate() -> Int{
+        return evaluate(self)
+    }
 }
 
 
@@ -253,11 +256,56 @@ class ExpressionParser{
                     caluateStatck.push(element: result)
                 }
             default:
-                assert(false,"位置运算符")
+                assert(false,"未知运算符")
             }
         }
         
         return caluateStatck.pop()?.value
+    }
+    
+    
+    
+    func calculate() -> Int?{
+        let signArray = self.parse()
+        let stackExpression = Stack<ArithmeticExpression>()
+        for sign in signArray{
+            var expression: ArithmeticExpression?;
+            switch sign {
+            case let .Number(value):
+                stackExpression.push(element:ArithmeticExpression.Number(value))
+            case .Times:
+                guard let right = stackExpression.pop(),
+                    let left = stackExpression.pop() else{
+                        assert(false)
+                }
+                let xxx = ArithmeticExpression.Multiplication(left, right)
+                stackExpression.push(element:xxx)
+            case .Division:
+                guard let right = stackExpression.pop(),
+                    let left = stackExpression.pop() else{
+                        assert(false)
+                }
+                stackExpression.push(element:ArithmeticExpression.Division(left, right))
+            case .Minus:
+                guard let right = stackExpression.pop(),
+                    let left = stackExpression.pop() else{
+                        assert(false)
+                }
+                stackExpression.push(element:ArithmeticExpression.Subtraction(left, right))
+            case .Plus:
+                guard let right = stackExpression.pop(),
+                    let left = stackExpression.pop() else{
+                        assert(false)
+                }
+                stackExpression.push(element:ArithmeticExpression.Addition(left, right))
+            default:
+                assert(false,"未知数值或运算符")
+            }
+            //stackExpression.push(element: expression!)
+        }
+        
+        let a = stackExpression.pop();
+        return a?.evaluate()
     }
     
 }
