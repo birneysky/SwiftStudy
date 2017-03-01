@@ -22,139 +22,31 @@ extension Character{
     }
 }
 
-enum Sign{
-    case Number(Int)
-    case Sharp
-    case Plus
-    case Minus
-    case Times
-    case Division
-    
-    init?( symbol: Character){
-        switch symbol {
-        case "#":
-            self = .Sharp
-        case "+":
-            self = .Plus
-        case "-":
-            self = .Minus
-        case "*":
-            self = .Times
-        case "/":
-            self = .Division
-        default:
-            return nil
-        }
-    }
-    
-    init( value: Int){
-        self = .Number(value)
-    }
-    
-    var priority: Int{
-        switch self {
-        case .Sharp, .Number:
-            return 100
-        case .Plus, .Minus:
-            return 120
-        case .Times,.Division:
-            return 140
-        }
-    }
-    
-    var value: Int?{
-        switch self {
-        case let .Number(value):
-            return value
-        default:
-            return nil
-        }
-    }
-    
-    static func * (left: Sign, right: Sign) -> Sign?{
-        
-        guard let lvalue = left.value,
-              let rvalue = right.value else{
-              return nil
-        }
-        
-        let result = lvalue * rvalue
-        return Sign(value: result)
-    }
-    
-    static func - (left: Sign, right: Sign) -> Sign?{
-        
-        guard let lvalue = left.value,
-            let rvalue = right.value else{
-                return nil
-        }
-        
-        let result = lvalue - rvalue
-        return Sign(value: result)
-    }
-    
-    static func / (left: Sign, right: Sign) -> Sign?{
-        
-        guard let lvalue = left.value,
-            let rvalue = right.value else{
-                return nil
-        }
-        
-        let result = lvalue / rvalue
-        return Sign(value: result)
-    }
-    
-    static func + (left: Sign, right: Sign) -> Sign?{
-        
-        guard let lvalue = left.value,
-            let rvalue = right.value else{
-                return nil
-        }
-        
-        let result = lvalue + rvalue
-        return Sign(value: result)
-    }
-    
-}
-
-indirect enum ArithmeticExpression{
-    case Number(Int)
-    case Addition(ArithmeticExpression,ArithmeticExpression)
-    case Multiplication(ArithmeticExpression,ArithmeticExpression)
-    case Subtraction(ArithmeticExpression,ArithmeticExpression)
-    case Division(ArithmeticExpression,ArithmeticExpression)
-    
-    private func evaluate(_ expression: ArithmeticExpression) -> Int{
-        switch expression {
-        case let .Number(value):
-            return value
-        case let .Addition(left,right):
-            return evaluate(left) + evaluate(right)
-        case let .Multiplication(left,right):
-            return evaluate(left) * evaluate(right)
-            
-        case let .Subtraction(left,right):
-            return evaluate(left) - evaluate(right);
-        case let .Division(left,right):
-            return evaluate(left) / evaluate(right);
-        }
-    }
-    
-    
-    public func evaluate() -> Int{
-        return evaluate(self)
-    }
-}
-
-
 
 /// [逆波兰表达式求解](http://blog.csdn.net/shiwazone/article/details/47067921)
 class ExpressionParser{
     private var expression: String
     private var  numStack: Stack<Sign>
     private var  operatorStack: Stack<Sign>
-    
 
+    enum Sign{
+        case Number(Int)
+        case Sharp
+        case Plus
+        case Minus
+        case Times
+        case Division
+        case LParentheses
+        case RParentheses
+    }
+    
+    indirect enum ArithmeticExpression{
+        case Number(Int)
+        case Addition(ArithmeticExpression,ArithmeticExpression)
+        case Multiplication(ArithmeticExpression,ArithmeticExpression)
+        case Subtraction(ArithmeticExpression,ArithmeticExpression)
+        case Division(ArithmeticExpression,ArithmeticExpression)
+    }
     
     
     init(expression: String){
@@ -177,7 +69,7 @@ class ExpressionParser{
             }
             else{
                 if let value = Int(num){
-                    self.numStack.push(element: Sign.Number(value));
+                    self.numStack.push(element: .Number(value));
                     num.removeAll();
                 }
                 
@@ -185,12 +77,22 @@ class ExpressionParser{
                     assert(false, "非法操作符")
                 }
                 
+                if sign.isRightParentheses {
+                    while let popSign = self.operatorStack.pop()  {
+                        if popSign.isLeftParentheses {
+                            break;
+                        }
+                        self.numStack.push(element: popSign)
+                    }
+                    continue
+                }
+                
                 guard let topSign = self.operatorStack.peek() else{
                     print("operator stack is empty")
                     break;
                 }
                 
-                if sign.priority >= topSign.priority {
+                if sign.priority >= topSign.priority || sign.isLeftParentheses{
                     self.operatorStack.push(element: sign)
                 }
                 else if !character.isSharp{
@@ -205,7 +107,7 @@ class ExpressionParser{
         while !self.operatorStack.isEmpty() {
             let sign = self.operatorStack.pop()!
             switch sign {
-            case .Plus,.Minus,.Times,.Division:
+            case .Plus,.Minus,.Times,.Division, .Number(_):
                 self.numStack.push(element: sign)
             default:
                 break
@@ -215,89 +117,37 @@ class ExpressionParser{
     }
     
     
-    
-    func evaluate(signs: [Sign]) -> Int?{
-        
-        let caluateStatck = Stack<Sign>()
-        for sign in signs{
-            switch sign {
-            case .Number(_):
-                caluateStatck.push(element: sign)
-            case .Times:
-                guard let right = caluateStatck.pop(),
-                      let left = caluateStatck.pop() else{
-                    assert(false)
-                }
-                if let result = left * right{
-                    caluateStatck.push(element: result)
-                }
-            case .Minus:
-                guard let right = caluateStatck.pop(),
-                    let left = caluateStatck.pop() else{
-                        assert(false)
-                }
-                if let result = left - right{
-                    caluateStatck.push(element: result)
-                }
-            case .Plus:
-                guard let right = caluateStatck.pop(),
-                    let left = caluateStatck.pop() else{
-                        assert(false)
-                }
-                if let result = left + right{
-                    caluateStatck.push(element: result)
-                }
-            case .Division:
-                guard let right = caluateStatck.pop(),
-                    let left = caluateStatck.pop() else{
-                        assert(false)
-                }
-                if let result = left / right{
-                    caluateStatck.push(element: result)
-                }
-            default:
-                assert(false,"未知运算符")
-            }
-        }
-        
-        return caluateStatck.pop()?.value
-    }
-    
-    
-    
     func calculate() -> Int?{
         let signArray = self.parse()
         let stackExpression = Stack<ArithmeticExpression>()
         for sign in signArray{
-            var expression: ArithmeticExpression?;
             switch sign {
             case let .Number(value):
-                stackExpression.push(element:ArithmeticExpression.Number(value))
+                stackExpression.push(element:.Number(value))
             case .Times:
                 guard let right = stackExpression.pop(),
                     let left = stackExpression.pop() else{
                         assert(false)
                 }
-                let xxx = ArithmeticExpression.Multiplication(left, right)
-                stackExpression.push(element:xxx)
+                stackExpression.push(element:.Multiplication(left, right))
             case .Division:
                 guard let right = stackExpression.pop(),
                     let left = stackExpression.pop() else{
                         assert(false)
                 }
-                stackExpression.push(element:ArithmeticExpression.Division(left, right))
+                stackExpression.push(element:.Division(left, right))
             case .Minus:
                 guard let right = stackExpression.pop(),
                     let left = stackExpression.pop() else{
                         assert(false)
                 }
-                stackExpression.push(element:ArithmeticExpression.Subtraction(left, right))
+                stackExpression.push(element:.Subtraction(left, right))
             case .Plus:
                 guard let right = stackExpression.pop(),
                     let left = stackExpression.pop() else{
                         assert(false)
                 }
-                stackExpression.push(element:ArithmeticExpression.Addition(left, right))
+                stackExpression.push(element:.Addition(left, right))
             default:
                 assert(false,"未知数值或运算符")
             }
@@ -309,3 +159,96 @@ class ExpressionParser{
     }
     
 }
+
+extension ExpressionParser.ArithmeticExpression{
+    private func evaluate(_ expression: ExpressionParser.ArithmeticExpression) -> Int{
+        switch expression {
+        case let .Number(value):
+            return value
+        case let .Addition(left,right):
+            return evaluate(left) + evaluate(right)
+        case let .Multiplication(left,right):
+            return evaluate(left) * evaluate(right)
+            
+        case let .Subtraction(left,right):
+            return evaluate(left) - evaluate(right);
+        case let .Division(left,right):
+            return evaluate(left) / evaluate(right);
+        }
+    }
+    
+    
+    public func evaluate() -> Int{
+        return evaluate(self)
+    }
+}
+
+
+extension ExpressionParser.Sign{
+    
+    init?( symbol: Character){
+        switch symbol {
+        case "#":
+            self = .Sharp
+        case "+":
+            self = .Plus
+        case "-":
+            self = .Minus
+        case "*":
+            self = .Times
+        case "/":
+            self = .Division
+        case "(":
+            self = .LParentheses
+        case ")":
+            self = .RParentheses
+        default:
+            return nil
+        }
+    }
+    
+    init( value: Int){
+        self = .Number(value)
+    }
+    
+    var priority: Int{
+        switch self {
+        case .Sharp, .Number:
+            return 100
+        case .Plus, .Minus:
+            return 120
+        case .Times,.Division:
+            return 140
+        case .LParentheses, .RParentheses:
+            return 90
+        }
+    }
+    
+    var value: Int?{
+        switch self {
+        case let .Number(value):
+            return value
+        default:
+            return nil
+        }
+    }
+    
+    var isLeftParentheses: Bool{
+        switch self {
+        case .LParentheses:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    var isRightParentheses: Bool{
+        switch self {
+        case .RParentheses:
+            return true
+        default:
+            return false
+        }
+    }
+}
+
