@@ -9,18 +9,7 @@
 import Foundation
 
 
-extension Character{
-    var isDigit: Bool{
-        if self >= "0" && self <= "9"  {
-            return true
-        }
-        return false
-    }
-    
-    var isSharp: Bool{
-        return self == "#"
-    }
-}
+
 
 
 /// [逆波兰表达式求解](http://blog.csdn.net/shiwazone/article/details/47067921)
@@ -183,6 +172,20 @@ extension ExpressionParser.ArithmeticExpression{
     }
 }
 
+
+
+extension Character{
+    var isDigit: Bool{
+        if self >= "0" && self <= "9"  {
+            return true
+        }
+        return false
+    }
+    
+    var isSharp: Bool{
+        return self == "#"
+    }
+}
 
 extension ExpressionParser.Sign{
     
