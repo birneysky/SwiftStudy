@@ -51,6 +51,7 @@ class LayoutView: UIView,NSLayoutManagerDelegate{
     
     override func draw(_ rect: CGRect) {
         let range = self.layoutManager.glyphRange(for: self.textContainer)
+        //let rect = self.layoutManager.usedRect(for: self.textContainer)
         let pointZero = CGPoint()
         
         self.layoutManager .drawBackground(forGlyphRange: range, at: pointZero)
@@ -66,11 +67,8 @@ class LayoutView: UIView,NSLayoutManagerDelegate{
     
 }
 
-let layoutView = LayoutView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-layoutView.backgroundColor = UIColor.white
-layoutView.text = "hello world hello swift hello apple hello jobs  hello ceo STextContainer 这个组件表示文本要填充的区域，通常是一列或者一页，可以去除某些区域。多数情况下，这个区域是矩形"
+let layoutViewx = LayoutView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+layoutViewx.backgroundColor = UIColor.green
+layoutViewx.text = "TextContainer 这个组件表示文本要填充的区域，通常是一列或者一页，可以去除某些区域。多数情况下，这个区域是矩形 aaaaaaaaaaaaaaaaaa"
 
-
-PlaygroundPage.current.liveView = layoutView
-
-
+PlaygroundPage.current.liveView = layoutViewx
