@@ -34,6 +34,7 @@ class MDTextContainerView: UIView,NSLayoutManagerDelegate{
             let range: NSRange = NSMakeRange(0, self.text.characters.count)
             self.textStorage.replaceCharacters(in: range, with: newValue)
             let rect = self.textStorage.boundingRect(with: CGSize(width:self.bounds.size.width,height:0), options: [.usesLineFragmentOrigin,.usesFontLeading] , context: nil)
+            print("xxxxx",self.text.characters.count)
             let glyphIndex = self.layoutManager.glyphIndexForCharacter(at: 402);
             let point =  self.layoutManager.location(forGlyphAt: glyphIndex)
             let lastRect = self.layoutManager.boundingRect(forGlyphRange: NSMakeRange(glyphIndex,1),in: self.textContainer)
