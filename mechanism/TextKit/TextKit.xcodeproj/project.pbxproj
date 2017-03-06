@@ -14,7 +14,7 @@
 		DBCBC2051E6D0DB8007D6185 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCBC2031E6D0DB8007D6185 /* Main.storyboard */; };
 		DBCBC2071E6D0DB8007D6185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBCBC2061E6D0DB8007D6185 /* Assets.xcassets */; };
 		DBCBC20A1E6D0DB8007D6185 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCBC2081E6D0DB8007D6185 /* LaunchScreen.storyboard */; };
-		DBCBC2121E6D0DEF007D6185 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBC2111E6D0DEF007D6185 /* LayoutView.swift */; };
+		DBCBC2121E6D0DEF007D6185 /* MDTextContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBC2111E6D0DEF007D6185 /* MDTextContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		DBCBC2061E6D0DB8007D6185 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBCBC2091E6D0DB8007D6185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBCBC20B1E6D0DB8007D6185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBCBC2111E6D0DEF007D6185 /* LayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
+		DBCBC2111E6D0DEF007D6185 /* MDTextContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDTextContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 				DBCBC1FF1E6D0DB6007D6185 /* AppDelegate.swift */,
 				DBCBC2011E6D0DB6007D6185 /* ViewController.swift */,
 				DBA565D01E6D60D000B6C84A /* MDCaretView.swift */,
-				DBCBC2111E6D0DEF007D6185 /* LayoutView.swift */,
+				DBCBC2111E6D0DEF007D6185 /* MDTextContainerView.swift */,
 				DBA565CE1E6D4CB400B6C84A /* MDTextView.swift */,
 				DBCBC2031E6D0DB8007D6185 /* Main.storyboard */,
 				DBCBC2061E6D0DB8007D6185 /* Assets.xcassets */,
@@ -150,7 +150,7 @@
 				DBA565CF1E6D4CB400B6C84A /* MDTextView.swift in Sources */,
 				DBCBC2021E6D0DB6007D6185 /* ViewController.swift in Sources */,
 				DBCBC2001E6D0DB6007D6185 /* AppDelegate.swift in Sources */,
-				DBCBC2121E6D0DEF007D6185 /* LayoutView.swift in Sources */,
+				DBCBC2121E6D0DEF007D6185 /* MDTextContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

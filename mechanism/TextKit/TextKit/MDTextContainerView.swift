@@ -16,12 +16,16 @@ import UIKit
 /// NSLayoutManager 这个组件在文本容器上应用布局
 
 
-class LayoutView: UIView,NSLayoutManagerDelegate{
+class MDTextContainerView: UIView,NSLayoutManagerDelegate{
     private var textContainer: NSTextContainer!
     private var layoutManager: NSLayoutManager!
     private var textStorage: NSTextStorage!
     private var caretView: MDCaretView
 
+    private var defaultTintColor: UIColor{
+        return UIColor(red:69.0/255.0,green:111/255.0,blue:238/255.0, alpha:1.0)
+    }
+    
     public var text: String{
         get{
             return self.textStorage.string
@@ -30,9 +34,18 @@ class LayoutView: UIView,NSLayoutManagerDelegate{
             let range: NSRange = NSMakeRange(0, self.text.characters.count)
             self.textStorage.replaceCharacters(in: range, with: newValue)
             let rect = self.textStorage.boundingRect(with: CGSize(width:self.bounds.size.width,height:0), options: [.usesLineFragmentOrigin,.usesFontLeading] , context: nil)
-            print("text didSet rect",NSStringFromCGRect(rect))
+            let glyphIndex = self.layoutManager.glyphIndexForCharacter(at: 402);
+            let point =  self.layoutManager.location(forGlyphAt: glyphIndex)
+            let lastRect = self.layoutManager.boundingRect(forGlyphRange: NSMakeRange(glyphIndex,1),in: self.textContainer)
+        
+            self.caretView.frame = CGRect(origin:lastRect.origin,size:CGSize(width:2,height:lastRect.size.height))
+            print("text didSet rect",NSStringFromCGRect(rect),"point",point,"lastrect",NSStringFromCGRect(lastRect))
             self.textContainer.size = rect.size
-            //self.setNeedsDisplay()
+            
+            
+
+            
+            self.setNeedsDisplay()
         }
     }
     
@@ -45,16 +58,16 @@ class LayoutView: UIView,NSLayoutManagerDelegate{
         }
     }
     
-    override func layoutSubviews() {
-       
-        print("============layoutSubviews================",NSStringFromCGRect(self.bounds))
-    }
-    
 
     
     required init?(coder aDecoder: NSCoder) {
         self.caretView = MDCaretView()
         super.init(coder: aDecoder)
+        
+        self.caretView.color = self.defaultTintColor
+        self.caretView.frame = CGRect(x:0,y:0,width:2,height:20)
+        self.addSubview(self.caretView)
+        self.caretView.caretBlinks = true
         
         //fatalError("init(coder:) has not been implemented")
     }
@@ -84,6 +97,9 @@ class LayoutView: UIView,NSLayoutManagerDelegate{
         
         self.layoutManager .drawBackground(forGlyphRange: range, at: pointZero)
         self.layoutManager.drawGlyphs(forGlyphRange: range, at: pointZero)
+        
+        let extraRect = self.layoutManager.extraLineFragmentRect
+        print("draw extraRect",NSStringFromCGRect(extraRect))
     }
     
     
