@@ -98,9 +98,6 @@ class MDTextContainerView: UIView,NSLayoutManagerDelegate{
         
         self.layoutManager .drawBackground(forGlyphRange: range, at: pointZero)
         self.layoutManager.drawGlyphs(forGlyphRange: range, at: pointZero)
-        
-        let extraRect = self.layoutManager.extraLineFragmentRect
-        print("draw extraRect",NSStringFromCGRect(extraRect))
     }
     
     
