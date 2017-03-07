@@ -22,7 +22,7 @@ class MDCaretView: UIView{
         }
         
     }
-    var caretBlinks: Bool = true{
+    var caretBlinks: Bool = false{
         didSet{
             if caretBlinks{
                 self.caretTimer = Timer.scheduledTimer(timeInterval: blinkDuration, target: self, selector: #selector(MDCaretView.doBlink), userInfo: nil, repeats: true)
@@ -34,17 +34,17 @@ class MDCaretView: UIView{
         }
     }
     
+    
 //     init(){
 //        self.caretTimer = Timer.scheduledTimer(timeInterval: blinkDuration, target: self, selector: Selector(("hahah:")), userInfo: nil, repeats: true)
 //        super.init()
 //    }
+    
     override init(frame: CGRect){
-//        self.caretBlinks = true
         super.init(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
-//        self.caretBlinks = true
         super.init(coder: aDecoder)
     }
     
