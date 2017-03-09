@@ -33,7 +33,7 @@ class MDCaretView: UIView {
         }
     }
     
-    
+    // MARK:- initializers
     override init(frame: CGRect){
         super.init(frame: frame)
     }
@@ -42,6 +42,7 @@ class MDCaretView: UIView {
         super.init(coder: aDecoder)
     }
     
+    // MARK:- target action
     @objc private func doBlink(){
         UIView.animate(withDuration: self.blinkFadeDuration, delay: 0, options: .curveEaseInOut, animations: {
             if self.alpha == 0{
