@@ -56,13 +56,13 @@ class MDTextContainerView: UIView,NSLayoutManagerDelegate{
         self.caretView.frame = CGRect(origin:caretOrigin,size:CGSize(width:2,height:lastRect.size.height))
         
         let containRect = self.layoutManager.boundingRect(forGlyphRange: NSMakeRange(0, self.text.characters.count), in: self.textContainer)
+        let contentSize = CGSize(width: self.bounds.size.width, height: boundingRect.size.height )
         
-        //
+        ///self.frame = CGRect(origin: CGPoint.zero, size: contentSize)
         print("boundingRect:",NSStringFromCGRect(boundingRect),"glypPoint:",NSStringFromCGPoint(glypPoint),"containRect:",NSStringFromCGRect(containRect),"lastRect:",NSStringFromCGRect(lastRect),"bouds:",NSStringFromCGRect(self.bounds))
         if boundingRect.size.height > self.bounds.size.height {
             print("text changed .............")
-            let size = CGSize(width: self.bounds.size.width, height: boundingRect.size.height )
-            self.delegate?.didTextContainerViewSizeChanged(newSize: size)
+            self.delegate?.didTextContainerViewSizeChanged(newSize: contentSize)
             //
         }
         self.setNeedsDisplay()
@@ -122,7 +122,7 @@ class MDTextContainerView: UIView,NSLayoutManagerDelegate{
         print("draw ",NSStringFromCGRect(rect))
         let pointZero = CGPoint.zero
         
-        self.layoutManager .drawBackground(forGlyphRange: range, at: pointZero)
+        //self.layoutManager .drawBackground(forGlyphRange: range, at: pointZero)
         self.layoutManager.drawGlyphs(forGlyphRange: range, at: pointZero)
     }
     
