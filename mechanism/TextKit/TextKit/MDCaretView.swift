@@ -9,9 +9,9 @@
 import UIKit
 import Foundation
 
-class MDCaretView: UIView{
-    let blinkDuration  = 0.5
-    let blinkFadeDuration = 0.2
+class MDCaretView: UIView {
+    private let blinkDuration  = 0.5
+    private let blinkFadeDuration = 0.2
     var caretTimer: Timer?
     var color: UIColor{
         set{
@@ -20,9 +20,8 @@ class MDCaretView: UIView{
         get{
             return self.backgroundColor ?? self.tintColor
         }
-        
     }
-    var caretBlinks: Bool = false{
+    var caretBlinks: Bool = true{
         didSet{
             if caretBlinks{
                 self.caretTimer = Timer.scheduledTimer(timeInterval: blinkDuration, target: self, selector: #selector(MDCaretView.doBlink), userInfo: nil, repeats: true)
@@ -34,11 +33,6 @@ class MDCaretView: UIView{
         }
     }
     
-    
-//     init(){
-//        self.caretTimer = Timer.scheduledTimer(timeInterval: blinkDuration, target: self, selector: Selector(("hahah:")), userInfo: nil, repeats: true)
-//        super.init()
-//    }
     
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -58,3 +52,4 @@ class MDCaretView: UIView{
         }, completion: nil)
     }
 }
+
