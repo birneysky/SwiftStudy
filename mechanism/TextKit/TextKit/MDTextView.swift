@@ -13,6 +13,7 @@ public class MDTextView: UIScrollView,MDTextContainerViewDelegate{
     
     public var text: String{
         set{
+            self.layoutIfNeeded()
             self.textContainView.text = newValue
         }
         get{
@@ -20,12 +21,8 @@ public class MDTextView: UIScrollView,MDTextContainerViewDelegate{
         }
     }
     
-    override public var bounds: CGRect{
-        didSet{
-            //self.textContainView.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: self.bounds.size.width, height: self.contentSize.height))
-            self.textContainView.updateLayout()
-        }
-    }
+    
+
     
     private func  initView(size: CGSize){
         self.clipsToBounds = true
@@ -33,6 +30,7 @@ public class MDTextView: UIScrollView,MDTextContainerViewDelegate{
         self.textContainView.delegate = self
         self.textContainView.backgroundColor = UIColor.white
         self.addSubview(self.textContainView)
+        self.textContainView.autoresizingMask = [.flexibleWidth]
         print("-->contentInset",NSStringFromUIEdgeInsets(self.contentInset),"-->cotentOffset:",NSStringFromCGPoint(self.contentOffset))
     }
     
