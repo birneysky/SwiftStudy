@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,11 +37,27 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5d-9f-MLF">
+                                <rect key="frame" x="16" y="422" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.21193406649999999" green="0.77261078039999997" blue="0.3453101516" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="EvP-aK-p95"/>
+                                    <constraint firstAttribute="height" constant="50" id="lWQ-sv-pqp"/>
+                                </constraints>
+                                <state key="normal" title="Insert">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="insertText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTv-gg-NJV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZB6-8S-dMU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="35" id="bWj-oX-Oby"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="M5d-9f-MLF" secondAttribute="bottom" constant="8" id="jCg-GF-Uwd"/>
                             <constraint firstAttribute="trailing" secondItem="ZB6-8S-dMU" secondAttribute="trailing" constant="8" id="paz-cG-l7o"/>
+                            <constraint firstItem="M5d-9f-MLF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qxy-eX-PwB"/>
                             <constraint firstItem="ZB6-8S-dMU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="vuS-rC-ew7"/>
                         </constraints>
                     </view>

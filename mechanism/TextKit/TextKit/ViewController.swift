@@ -22,5 +22,7 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func insertText(_ sender: UIButton) {
+    }
 }
 

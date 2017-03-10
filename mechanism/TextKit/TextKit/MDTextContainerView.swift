@@ -133,6 +133,7 @@ class MDTextContainerView: UIView,NSLayoutManagerDelegate{
     
     public func insertText(_ text: String ,at index: Int){
         self.textStorage.insert( NSAttributedString(string: text), at: index)
+        self.setNeedsDisplay()
     }
     
 }
