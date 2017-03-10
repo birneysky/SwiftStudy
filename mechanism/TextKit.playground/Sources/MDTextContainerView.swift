@@ -31,7 +31,9 @@ public class MDTextContainerView: UIView,NSLayoutManagerDelegate{
         set{
             let range: NSRange = NSMakeRange(0, self.text.characters.count)
             self.textStorage.replaceCharacters(in: range, with: newValue)
-            let boundingRect = self.textStorage.boundingRect(with: CGSize(width:self.bounds.size.width,height:0), options: [.usesLineFragmentOrigin,.usesFontLeading,.usesDeviceMetrics] , context: nil)
+            /// 如果直接使用self.bounds.size.width为宽度 计算出来的高度会少一行的高度，最后一行会显示不全。减掉padding会解决这个问题。
+            let actualWidth = self.bounds.size.width - self.textContainer.lineFragmentPadding * 2
+            let boundingRect = self.textStorage.boundingRect(with: CGSize(width:actualWidth,height:0), options: [.usesLineFragmentOrigin,.usesFontLeading,.usesDeviceMetrics] , context: nil)
             self.textContainer.size = CGSize(width: self.bounds.size.width, height: boundingRect.size.height)
             let glyphIndex = self.layoutManager.glyphIndexForCharacter(at: self.text.characters.count-1);
             let glypPoint =  self.layoutManager.location(forGlyphAt: glyphIndex)
