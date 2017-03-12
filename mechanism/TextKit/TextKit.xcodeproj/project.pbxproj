@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74162A571E73CCF300FCF5B9 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74162A561E73CCF300FCF5B9 /* CGRect.swift */; };
 		DBA565CF1E6D4CB400B6C84A /* MDTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA565CE1E6D4CB400B6C84A /* MDTextView.swift */; };
 		DBA565D11E6D60D000B6C84A /* MDCaretView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA565D01E6D60D000B6C84A /* MDCaretView.swift */; };
 		DBCBC2001E6D0DB6007D6185 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCBC1FF1E6D0DB6007D6185 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74162A561E73CCF300FCF5B9 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		DBA565CE1E6D4CB400B6C84A /* MDTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDTextView.swift; sourceTree = "<group>"; };
 		DBA565D01E6D60D000B6C84A /* MDCaretView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDCaretView.swift; sourceTree = "<group>"; };
 		DBCBC1FC1E6D0DB6007D6185 /* TextKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,9 +43,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74162A551E73CCE300FCF5B9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				74162A561E73CCF300FCF5B9 /* CGRect.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		DBCBC1F31E6D0DB5007D6185 = {
 			isa = PBXGroup;
 			children = (
+				74162A551E73CCE300FCF5B9 /* Extension */,
 				DBCBC1FE1E6D0DB6007D6185 /* TextKit */,
 				DBCBC1FD1E6D0DB6007D6185 /* Products */,
 			);
@@ -147,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBA565D11E6D60D000B6C84A /* MDCaretView.swift in Sources */,
+				74162A571E73CCF300FCF5B9 /* CGRect.swift in Sources */,
 				DBA565CF1E6D4CB400B6C84A /* MDTextView.swift in Sources */,
 				DBCBC2021E6D0DB6007D6185 /* ViewController.swift in Sources */,
 				DBCBC2001E6D0DB6007D6185 /* AppDelegate.swift in Sources */,

@@ -113,6 +113,8 @@ class MDTextContainerView: UIView,NSLayoutManagerDelegate{
         self.addSubview(self.caretView)
         self.caretView.caretBlinks = true
         
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tap(_:)))
+        self.addGestureRecognizer(tapGesture)
         //self.text = "hello"
     }
     
@@ -133,6 +135,24 @@ class MDTextContainerView: UIView,NSLayoutManagerDelegate{
     
     public func insertText(_ text: String ,at index: Int){
         self.textStorage.insert( NSAttributedString(string: text), at: index)
+    }
+    
+    @objc func tap(_ gesture:UITapGestureRecognizer){
+        let tapPoint =  gesture.location(in: self)
+        print("tapPoint",NSStringFromCGPoint(tapPoint))
+        
+        let characterIndex = self.layoutManager.characterIndex(for: tapPoint, in: self.textContainer, fractionOfDistanceBetweenInsertionPoints: UnsafeMutablePointer<CGFloat>(bitPattern: 0))
+        print("characterIndex \(characterIndex)")
+        
+        let glyphIndex = self.layoutManager.glyphIndex(for: tapPoint, in: self.textContainer)
+        print("glyhIndex \(glyphIndex)")
+        
+        //let glyphLocation = self.layoutManager.location(forGlyphAt: glyphIndex)
+        
+        let glyphRect = self.layoutManager.boundingRect(forGlyphRange: NSMakeRange(glyphIndex, 1), in: self.textContainer)
+        print("lastglyphRect \(glyphRect)")
+        
+        self.caretView.frame.origin = glyphRect.origin
     }
     
 }
