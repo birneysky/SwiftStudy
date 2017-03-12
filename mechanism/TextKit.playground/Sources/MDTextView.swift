@@ -41,7 +41,10 @@ public class MDTextView: UIScrollView,MDTextContainerViewDelegate{
         print("size: ",NSStringFromCGSize(size))
         self.contentSize = size
         self.textContainView.frame  = CGRect(origin: rect.origin, size: size)
+<<<<<<< HEAD
+=======
         //self.scrollRectToVisible(CGRect(x:0,y:size.height - 30,width:100,height:30), animated: false)
+>>>>>>> 6786e19267f2e5220b66b80c576211c29359850b
         self.scrollRectToVisible(self.textContainView.caretViewRect, animated: true)
     }
    
