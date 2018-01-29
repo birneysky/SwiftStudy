@@ -26,6 +26,14 @@ open class SightButton: UIView{
     return layer;
   }()
   
+  /// 刷新定时器
+  private lazy var displayLink: CADisplayLink = {
+    let link = CADisplayLink(target: self, selector: #selector(dispalyLinkRun))
+    link.preferredFramesPerSecond = 60;
+    link.add(to: RunLoop.current, forMode: .defaultRunLoopMode)
+    return link;
+  }()
+  
   private var progress: Float = 0.0
   private var isTimeOut: Bool = false
   private var isPressed: Bool = false
@@ -67,6 +75,8 @@ open class SightButton: UIView{
     switch gesture.state {
     case .began:
       self.isPressed = true
+      //self.displayLink.isPaused = false
+      self.layer.addSublayer(self.progressLayer)
     case .changed:
       self.isPressed = false
     case .ended:
@@ -82,4 +92,16 @@ open class SightButton: UIView{
     
   }
   
+  //MARK:- DisplayLink Selector
+  func dispalyLinkRun(){
+    print("\(Date().description)")
+  }
+  
+  //MARK:- Helper
+  func updateLayerWithAnimation(){
+    let width = self.bounds.size.width
+    let halfWith = width / 2
+    
+  }
+
 }
