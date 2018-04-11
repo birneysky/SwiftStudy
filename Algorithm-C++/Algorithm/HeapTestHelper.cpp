@@ -21,9 +21,9 @@ void  HeapTestHelper::testHeap()
         maxHeap.insert(rand() % 100);
     }
     
-    maxHeap.testPrint();
+   // maxHeap.testPrint();
     maxHeap.extractMax();
-    maxHeap.testPrint();
+   // maxHeap.testPrint();
    // std::cout << "max heap size : " << maxHeap.size() << std::endl;
     
 }

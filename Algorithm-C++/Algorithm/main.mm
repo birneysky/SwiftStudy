@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <map>
 
 #include "SortTestHelper.hpp"
 #include "SortAlgorithm.hpp"
 #include "BSTTestHelper.hpp"
 #include "BinarySearchTestHelper.hpp"
 #include "HeapTestHelper.hpp"
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -71,6 +73,20 @@ int main(int argc, const char * argv[]) {
         
         std::cout << std::endl << " ======= Heap Test ======= " << std::endl;
         HeapTestHelper::testHeap();
+        
+        
+        std::map<int,std::string> testMap;
+        testMap.insert(std::map<int,std::string>::value_type(10,"10"));
+        testMap.insert(std::map<int,std::string>::value_type(2,"2"));
+        testMap.insert(std::map<int,std::string>::value_type(3,"3"));
+        testMap.insert(std::map<int,std::string>::value_type(4,"4"));
+        testMap.insert(std::map<int,std::string>::value_type(5,"5"));
+        testMap.insert(std::map<int,std::string>::value_type(1,"1"));
+        
+        
+        for( std::map<int,std::string>::iterator it = testMap.begin(); it != testMap.end(); it++){
+                std::cout << it->first << ":" << it->second << std::endl;
+        }
     }
     return 0;
 }
