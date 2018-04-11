@@ -2,13 +2,13 @@
 //  main.swift
 //  Algorithm
 //
-//  Created by zhangguang on 17/2/16.
+//  Created by zhaobingdong on 17/2/16.
 //  Copyright © 2017年 com.Tech. All rights reserved.
 //
 
 import Foundation
 
-let n = 10000
+let n = 1000000
 var times = 200
 
 var array = SortTestHelper.generateRandomIntArray(n: n, rangeL: 0, rangeR: n)
@@ -37,4 +37,4 @@ var expressionParser = ExpressionParser(expression:"2+3*4+9/3+(1+2)*3#")///
 let b = expressionParser.calculate();
 
 //print(a)
-print(b)
+print(b!)

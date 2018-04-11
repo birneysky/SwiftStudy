@@ -2,7 +2,7 @@
 //  SortTestHelper.swift
 //  Algorithm
 //
-//  Created by zhangguang on 17/2/16.
+//  Created by zhaobingdong on 17/2/16.
 //  Copyright © 2017年 com.Tech. All rights reserved.
 //
 
@@ -53,7 +53,7 @@ class SortTestHelper{
         for _ in 0 ..< swapTimes{
             let left = Int(arc4random()) % n
             let right = Int(arc4random()) % n
-            swap(&array[left], &array[right])
+            array.swapAt(left, right)
         }
         
         return array

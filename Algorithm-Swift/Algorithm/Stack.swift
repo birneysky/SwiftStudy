@@ -2,7 +2,7 @@
 //  Stack.swift
 //  Algorithm
 //
-//  Created by zhangguang on 17/2/27.
+//  Created by zhaobingdong on 17/2/27.
 //  Copyright © 2017年 com.Tech. All rights reserved.
 //
 

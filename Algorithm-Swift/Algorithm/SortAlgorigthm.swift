@@ -2,7 +2,7 @@
 //  SortAlgorigthm.swift
 //  Algorithm
 //
-//  Created by zhangguang on 17/2/16.
+//  Created by zhaobingdong on 17/2/16.
 //  Copyright © 2017年 com.Tech. All rights reserved.
 //
 
@@ -22,7 +22,7 @@ func selectSort<T:Comparable>(array: inout [T]){
             }
         }
         if i != minIndex {
-            swap(&array[i], &array[minIndex])
+            array.swapAt(9, minIndex)
         }
     }
 }
@@ -94,7 +94,7 @@ func insertSort<T:Comparable>(array: inout [T]){
     for i in 1 ..< n {
         for j in stride(from: i, to: 0, by: -1){
             if array[j] < array[j-1] {
-                swap(&array[j], &array[j-1])
+                array.swapAt(j, j-1)
             }
             else {
                 break
@@ -209,12 +209,14 @@ private func partition<T:Comparable>(array: inout [T], left: Int, right: Int) ->
     for i in left+1...right{
         if array[i] < v {
             j += 1
-            if j != i { swap(&array[j], &array[i]) }
-            //(array[j],array[i]) = (array[i],array[j])
+            if j != i {
+                array.swapAt(j, i);
+                //(array[j],array[i]) = (array[i],array[j])
+            }
         }
     }
     if left != j {
-        swap(&array[left], &array[j])
+        array.swapAt(left, j)
     }
     //(array[left],array[j]) = (array[j],array[left])
     return j

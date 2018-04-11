@@ -2,7 +2,7 @@
 //  ExpressionParser.swift
 //  Algorithm
 //
-//  Created by zhangguang on 17/2/27.
+//  Created by zhaobingdong on 17/2/27.
 //  Copyright © 2017年 com.Tech. All rights reserved.
 //
 
@@ -51,7 +51,7 @@ class ExpressionParser{
     func parse() -> [Sign] {
         var num: String = String();
 
-        for character in self.expression.characters {
+        for character in self.expression {
 
             if character.isDigit {
                 num.append(character)
@@ -64,6 +64,7 @@ class ExpressionParser{
                 
                 guard let sign = Sign(symbol: character) else{
                     assert(false, "非法操作符")
+                    return [Sign.Number(0)]
                 }
                 
                 if sign.isRightParentheses {
@@ -117,24 +118,28 @@ class ExpressionParser{
                 guard let right = stackExpression.pop(),
                     let left = stackExpression.pop() else{
                         assert(false)
+                        return nil
                 }
                 stackExpression.push(element:.Multiplication(left, right))
             case .Division:
                 guard let right = stackExpression.pop(),
                     let left = stackExpression.pop() else{
                         assert(false)
+                        return nil
                 }
                 stackExpression.push(element:.Division(left, right))
             case .Minus:
                 guard let right = stackExpression.pop(),
                     let left = stackExpression.pop() else{
                         assert(false)
+                        return nil
                 }
                 stackExpression.push(element:.Subtraction(left, right))
             case .Plus:
                 guard let right = stackExpression.pop(),
                     let left = stackExpression.pop() else{
                         assert(false)
+                        return nil
                 }
                 stackExpression.push(element:.Addition(left, right))
             default:
