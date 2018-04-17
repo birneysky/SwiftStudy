@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74E3DCAD207FB16900003C59 /* SortUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3DCAC207FB16900003C59 /* SortUnitTest.swift */; };
+		74E3DCB22086261400003C59 /* SortAlgorigthm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23E7E71E55A40B00B476E5 /* SortAlgorigthm.swift */; };
 		B28EED412016392E009A6DA7 /* UnionFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EED402016392E009A6DA7 /* UnionFind.swift */; };
 		DB23E7E11E55A00F00B476E5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23E7E01E55A00F00B476E5 /* main.swift */; };
 		DB23E7E81E55A40B00B476E5 /* SortAlgorigthm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23E7E71E55A40B00B476E5 /* SortAlgorigthm.swift */; };
@@ -28,6 +30,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		74E3DCAA207FB16900003C59 /* UnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74E3DCAC207FB16900003C59 /* SortUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortUnitTest.swift; sourceTree = "<group>"; };
+		74E3DCAE207FB16900003C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B28EED402016392E009A6DA7 /* UnionFind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionFind.swift; sourceTree = "<group>"; };
 		DB23E7DD1E55A00F00B476E5 /* Algorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Algorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB23E7E01E55A00F00B476E5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -38,6 +43,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		74E3DCA7207FB16900003C59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB23E7DA1E55A00F00B476E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -48,10 +60,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74E3DCAB207FB16900003C59 /* UnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				74E3DCAC207FB16900003C59 /* SortUnitTest.swift */,
+				74E3DCAE207FB16900003C59 /* Info.plist */,
+			);
+			path = UnitTest;
+			sourceTree = "<group>";
+		};
 		DB23E7D41E55A00F00B476E5 = {
 			isa = PBXGroup;
 			children = (
 				DB23E7DF1E55A00F00B476E5 /* Algorithm */,
+				74E3DCAB207FB16900003C59 /* UnitTest */,
 				DB23E7DE1E55A00F00B476E5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				DB23E7DD1E55A00F00B476E5 /* Algorithm */,
+				74E3DCAA207FB16900003C59 /* UnitTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,6 +103,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		74E3DCA9207FB16900003C59 /* UnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74E3DCAF207FB16900003C59 /* Build configuration list for PBXNativeTarget "UnitTest" */;
+			buildPhases = (
+				74E3DCA6207FB16900003C59 /* Sources */,
+				74E3DCA7207FB16900003C59 /* Frameworks */,
+				74E3DCA8207FB16900003C59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnitTest;
+			productName = UnitTest;
+			productReference = 74E3DCAA207FB16900003C59 /* UnitTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DB23E7DC1E55A00F00B476E5 /* Algorithm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB23E7E41E55A00F00B476E5 /* Build configuration list for PBXNativeTarget "Algorithm" */;
@@ -103,10 +143,14 @@
 		DB23E7D51E55A00F00B476E5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = com.Tech;
 				TargetAttributes = {
+					74E3DCA9207FB16900003C59 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
 					DB23E7DC1E55A00F00B476E5 = {
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 0920;
@@ -127,11 +171,31 @@
 			projectRoot = "";
 			targets = (
 				DB23E7DC1E55A00F00B476E5 /* Algorithm */,
+				74E3DCA9207FB16900003C59 /* UnitTest */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		74E3DCA8207FB16900003C59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		74E3DCA6207FB16900003C59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74E3DCB22086261400003C59 /* SortAlgorigthm.swift in Sources */,
+				74E3DCAD207FB16900003C59 /* SortUnitTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB23E7D91E55A00F00B476E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,6 +212,49 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		74E3DCB0207FB16900003C59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = UnitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = RongCloud.tech.UnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		74E3DCB1207FB16900003C59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = UnitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = RongCloud.tech.UnitTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		DB23E7E21E55A00F00B476E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -273,6 +380,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		74E3DCAF207FB16900003C59 /* Build configuration list for PBXNativeTarget "UnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74E3DCB0207FB16900003C59 /* Debug */,
+				74E3DCB1207FB16900003C59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DB23E7D81E55A00F00B476E5 /* Build configuration list for PBXProject "Algorithm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

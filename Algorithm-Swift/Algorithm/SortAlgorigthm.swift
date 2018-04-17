@@ -22,7 +22,7 @@ func selectSort<T:Comparable>(array: inout [T]){
             }
         }
         if i != minIndex {
-            array.swapAt(9, minIndex)
+            array.swapAt(i, minIndex)
         }
     }
 }
@@ -218,7 +218,6 @@ private func partition<T:Comparable>(array: inout [T], left: Int, right: Int) ->
     if left != j {
         array.swapAt(left, j)
     }
-    //(array[left],array[j]) = (array[j],array[left])
     return j
 }
 
