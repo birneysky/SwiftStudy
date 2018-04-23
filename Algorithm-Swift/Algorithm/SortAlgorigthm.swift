@@ -191,6 +191,23 @@ public func mergeSort<T:Comparable>(array: inout [T]){
 }
 
 
+public func mergeSortBU<T:Comparable>(array: inout [T]) {
+    let n = array.count
+    var size = 1
+    while size <= n {
+        var i = 0;
+        while i + size < n {
+            __merge(array: &array,
+                     left: i,
+                   middle: i+size-1,
+                    right: min(i+size*2-1, n-1))
+            i += 2 * size
+        }
+        size += size
+    }
+}
+
+
 
 /// 使的数组array[left...right]部分进行partition操作
 ///
@@ -211,7 +228,6 @@ private func partition<T:Comparable>(array: inout [T], left: Int, right: Int) ->
             j += 1
             if j != i {
                 array.swapAt(j, i);
-                //(array[j],array[i]) = (array[i],array[j])
             }
         }
     }

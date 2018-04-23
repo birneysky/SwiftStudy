@@ -2,7 +2,7 @@
 //  UnionFind.swift
 //  Algorithm
 //
-//  Created by birney on 2018/1/22.
+//  Created by zhaobingdong on 2018/1/22.
 //  Copyright © 2018年 com.Tech. All rights reserved.
 //
 

@@ -217,16 +217,13 @@ namespace SortAlgorigthm {
             if (i > m) {
                 arr[k] = aux[j - l];
                 j++;
-            }
-            else if( j > r){
+            } else if( j > r){
                 arr[k] = aux[i - l];
                 i++;
-            }
-            else if (aux[i - l] > aux[j - l]) {
+            } else if (aux[i - l] > aux[j - l]) {
                 arr[k] = aux[j - l];
                 j++;
-            }
-            else{
+            } else {
                 arr[k] = aux[i - l];
                 i++;
             }
@@ -282,6 +279,7 @@ namespace SortAlgorigthm {
     void merageSortBottomToUp(T array[] ,int n){
         for (int size = 1; size <= n; size += size){
             for (int i = 0; i + size < n; i += 2 * size){
+                std::cout << "left =" << i << ", middle = " << i+size-1 << ",right = " << std::min(i+ size*2 -1,n-1) << std::endl;
                 __merage(array, i, i+size-1, std::min(i+ size*2 -1,n-1));
             }
         }
