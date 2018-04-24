@@ -59,4 +59,21 @@ var expressionParser = ExpressionParser(expression:"2+3*4+9/3+(1+2)*3#")///
     int m_nKey;
     ListNode* m_pNext;
  }
+ 
+ 6. 输入二叉树的前序遍历的和中序遍历的结果，请重建该二叉树。
+ 假设输入的前序遍历和中序遍历的结果中都不含重复数字。例如，输入前序遍历{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}
+ 重建二叉树并输出它的根结点。二叉树结点定义如下
+ struct BinaryTreeNode {
+    int m_nValue;
+    BinaryTreeNode* m_pLeft;
+    BinaryTreeNode* m_pRight;
+ }
+ 
+            1
+        /      \
+       2        3
+       /       /  \
+       4      5    6
+        \          /
+         7         8
  */
