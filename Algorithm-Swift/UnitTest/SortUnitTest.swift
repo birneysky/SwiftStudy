@@ -51,32 +51,32 @@ class SortUnitTest: XCTestCase {
         super.tearDown()
     }
     
-//    func testSelectSort() {
-//        // This is an example of a functional test case.
-//        // Use XCTAssert and related functions to verify your tests produce the correct results.
-//       selectSort(array: &randomArray!)
-//        //let a = UnionFindA(5)
-//        XCTAssert(SortUnitTest.isSorted(randomArray!))
-//    }
-//
-//    func testInsertSort() {
-//        insertSort(array: &randomArray!)
-//        XCTAssert(SortUnitTest.isSorted(randomArray!))
-//    }
-//
-//    func testInsertSort2() {
-//        insertSort2(array: &randomArray!)
-//        XCTAssert(SortUnitTest.isSorted(randomArray!))
-//    }
+    func testSelectSort() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+       selectSort(array: &randomArray!)
+        //let a = UnionFindA(5)
+        XCTAssert(SortUnitTest.isSorted(randomArray!))
+    }
+
+    func testInsertSort() {
+        insertSort(array: &randomArray!)
+        XCTAssert(SortUnitTest.isSorted(randomArray!))
+    }
+
+    func testInsertSort2() {
+        insertSort2(array: &randomArray!)
+        XCTAssert(SortUnitTest.isSorted(randomArray!))
+    }
     
-//    func testPerformanceSelectSort() {
-//        // This is an example of a performance test case.
-//        self.measure {
-//            // Put the code you want to measure the time of here.
-//            selectSort(array: &self.randomArray!)
-//        }
-//        XCTAssert(SortUnitTest.isSorted(randomArray!))
-//    }
+    func testPerformanceSelectSort() {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
+            selectSort(array: &self.randomArray!)
+        }
+        XCTAssert(SortUnitTest.isSorted(randomArray!))
+    }
     
     func testQuickSort() {
         quickSort(array: &randomArray!)
