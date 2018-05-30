@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		749E68AE20BEFBC3001773B9 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E68AD20BEFBC3001773B9 /* Heap.swift */; };
+		749E68B020BEFD54001773B9 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E68AF20BEFD54001773B9 /* Code.swift */; };
 		74E3DCAD207FB16900003C59 /* SortUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3DCAC207FB16900003C59 /* SortUnitTest.swift */; };
 		74E3DCB22086261400003C59 /* SortAlgorigthm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB23E7E71E55A40B00B476E5 /* SortAlgorigthm.swift */; };
 		B28EED412016392E009A6DA7 /* UnionFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28EED402016392E009A6DA7 /* UnionFind.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		749E68AD20BEFBC3001773B9 /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
+		749E68AF20BEFD54001773B9 /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		74E3DCAA207FB16900003C59 /* UnitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74E3DCAC207FB16900003C59 /* SortUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortUnitTest.swift; sourceTree = "<group>"; };
 		74E3DCAE207FB16900003C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				B28EED402016392E009A6DA7 /* UnionFind.swift */,
 				DB40E8581E63CEEE00FDE8E1 /* Stack.swift */,
 				DB40E85A1E63D18200FDE8E1 /* ExpressionParser.swift */,
+				749E68AD20BEFBC3001773B9 /* Heap.swift */,
+				749E68AF20BEFD54001773B9 /* Code.swift */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -200,12 +206,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				749E68B020BEFD54001773B9 /* Code.swift in Sources */,
 				DB40E85B1E63D18200FDE8E1 /* ExpressionParser.swift in Sources */,
 				DB40E8591E63CEEE00FDE8E1 /* Stack.swift in Sources */,
 				DB23E7E11E55A00F00B476E5 /* main.swift in Sources */,
 				DB23E7EA1E55ABD500B476E5 /* SortTestHelper.swift in Sources */,
 				B28EED412016392E009A6DA7 /* UnionFind.swift in Sources */,
 				DB23E7E81E55A40B00B476E5 /* SortAlgorigthm.swift in Sources */,
+				749E68AE20BEFBC3001773B9 /* Heap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +372,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -374,6 +383,7 @@
 		DB23E7E61E55A00F00B476E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
