@@ -47,13 +47,27 @@ import Foundation
  0   1    2   3    4    5   6    7    8   9   10
  *   62  41  30  28  16  22  13   19  17  15
  注意0索引是不使用的
- 这样就可以容易找到每一个索引对应的父节点的索引，还有左节点和右节点的索引
+ 这样就可以容易找到某个节点对应的父节点的元素，还有左节点和右节点的元素
  parent(i) = i  / 2
  left(i) = 2*i
  right(i) = 2*i + 1
  
  */
 
-class MaxHeap {
+class MaxHeap  {
+    private var data: [Int]
+    private var count: Int
+    init(capacity: Int) {
+        //data = Array<Int>(repeating: 0, count: capacity + 1)
+        data = [Int](repeating: 0, count: capacity + 1)
+        count = 0
+    }
     
+    public func size() -> Int {
+        return self.count
+    }
+    
+    public func isEmpty() -> Bool {
+        return self.count == 0
+    }
 }
