@@ -51,7 +51,9 @@ import Foundation
  parent(i) = i  / 2
  left(i) = 2*i
  right(i) = 2*i + 1
- 
+
+ 添加一个元素  Shift Up  添加一个元素52
+将52添加到数组的末端，然后比较52根父节点16的大小，52>16 , 那么交换位置，直到52小于其父节点为止
  */
 
 class MaxHeap  {
@@ -63,11 +65,29 @@ class MaxHeap  {
         count = 0
     }
     
+    private func shiftUp(_ k: Int) {
+        var index = k
+        while index > 1 && data[index] > data[index/2] {
+            data.swapAt(index, index/2)
+            index = index / 2
+        }
+    }
+    
     public func size() -> Int {
-        return self.count
+        return count
     }
     
     public func isEmpty() -> Bool {
-        return self.count == 0
+        return count == 0
+    }
+    
+    public func insert(item: Int) {
+        if count + 1 >= data.count {
+            data.append(item)
+        } else {
+            data[count+1] = item;            
+        }
+        count += 1
+        shiftUp(count)
     }
 }
