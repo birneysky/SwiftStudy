@@ -52,9 +52,43 @@ import Foundation
  left(i) = 2*i
  right(i) = 2*i + 1
 
- 添加一个元素  Shift Up  添加一个元素52
+ Shift Up 向堆中插入一个元素   假设插入一个元素52
 将52添加到数组的末端，然后比较52根父节点16的大小，52>16 , 那么交换位置，直到52小于其父节点为止
+                                 62(1)
+                          /                 \
+                    52(2)                 30(3)
+                  /         \              /         \
+             28(4)         41(5)     22(6)      13(7)
+            /      \          /     \
+        19(8)    17(9)   15(10) 16(11)
+ 
+ Shift down  从堆中取出一个元素，只能取出根节点的那个元素，对于最大堆来说就取出了优先级最大的那个元素
+ 取出根节点62后，将最后一个元素放到第一个元素的位置就可以了,然后调整元素使其保持最大堆的性质，基本思路是
+ 将跟根节点的元素一步一步向下移动，使其找到相应的位置。16 向下移动时可以向左移动也可以向右移动，
+ 如果左子节点大于右子节点，就跟左子节点交换位置，
+ 在这个例子里 16 跟 52 交换位置 这样换完后 52 比 16 和 30 都要大 满足了最大堆的性质
+62(1)
+                                52 (1)
+                          /                 \
+                    16(2)                 30(3)
+                   /         \              /         \
+             28(4)          41(5)     22(6)      13(7)
+             /      \          /    \
+         19(8)    17(9)  15(10)
+ 下一步继续尝试看16是否还要继续下移，比较16的左右两个孩子28 和 41 ，41 大，16和41交换位置
+                            52 (1)
+                    /                 \
+               41(2)                 30(3)
+             /         \              /         \
+       28(4)          16(5)     22(6)      13(7)
+     /      \          /    \
+   19(8)    17(9)  15(10)
+ 
+ 继续将16它的孩子们相比较，这里16 只有左孩子，那么就拿16和15做比较，发现16大于15 ，那么不发生交换。
+ 到此，Shift Down 的操作就完成了
+ 
  */
+
 
 class MaxHeap  {
     private var data: [Int]
@@ -67,10 +101,52 @@ class MaxHeap  {
     
     private func shiftUp(_ k: Int) {
         var index = k
+        /// 由于索引0 不使用，所以数组中至少有两个元素时
         while index > 1 && data[index] > data[index/2] {
             data.swapAt(index, index/2)
             index = index / 2
         }
+    }
+    
+    private func shiftDown(_ k: Int) {
+        var i = k
+        ///首先要保证 k 索引的元素有左孩子
+        while 2 * i <= count {
+            ///左孩子索引
+            let j  = 2 * i
+            ///如果有右孩子 比较左右孩子
+            if j+1 <= count {
+                if  data[j] > data[j+1] {
+                    data.swapAt(i, j)
+                    i = j
+                } else {
+                    data.swapAt(i, j+1)
+                    i = j+1
+                }
+            } else {
+                if data[i] < data[j] {
+                    data.swapAt(i, j)
+                }
+            }
+            
+        }
+    }
+        
+    private func shiftDown2(_ k: Int) {
+        var i = k
+        while 2 * i <= count {
+            var j = 2 * i
+            if j + 1 <= count && data[j+1] > data[j] {
+                j += 1
+            }
+            
+            if data[i] >= data[j] {
+                break
+            }
+            data.swapAt(i, j)
+            i = j
+        }
+        
     }
     
     public func size() -> Int {
@@ -89,5 +165,15 @@ class MaxHeap  {
         }
         count += 1
         shiftUp(count)
+    }
+    
+    public func extractMax() -> Int {
+        assert(count > 0)
+        let ret = data[1]
+        data.swapAt(1, count)
+        count -= 1
+        shiftDown(1)
+        return ret
+        
     }
 }
