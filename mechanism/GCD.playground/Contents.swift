@@ -59,3 +59,32 @@ func dispatchAsyncRepeat(_ time:DispatchTime, interval:Double, queue:DispatchQue
  
  dispatch_barrier_async 的作用是什么
  */
+
+
+let serial = DispatchQueue(label: "com.playground.serial")
+serial.async {
+    for i in 0...5 {
+        print("🛑 \(i)")
+    }
+}
+
+serial.async {
+    for i in 5...10 {
+        print("🛑 \(i)")
+    }
+}
+
+
+let concurrent = DispatchQueue(label: "com.plagground.concurrent", attributes:.concurrent)
+
+concurrent.async {
+    for i in 0..<5 {
+        print("💙 \(i)")
+    }
+}
+
+concurrent.async {
+    for i in 5..<10 {
+        print("💙 \(i)")
+    }
+}
